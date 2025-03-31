@@ -1,5 +1,5 @@
-\documentclass[a4paper,13pt]{report}
-\usepackage[utf8]{vietnam}
+\documentclass[a4paper]{report}
+\usepackage[main=vietnamese,english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -23,15 +23,16 @@
 \usepackage{tocloft,calc}
 \usepackage{listings}
 \usepackage{makecell}
-\usepackage[sort&compress]{natbib}
+% \usepackage[sort&compress]{natbib}
 \usetikzlibrary{calc}
 \usepackage{algorithm}
 \usepackage{subcaption}
-% \usepackage{minted}
+\usepackage{biblatex}
 % \usepackage[perpage]{footmisc}
 \usepackage[flushleft]{threeparttable}
 % \usepackage{subcaption}
 \usepackage{perpage} %the perpage package
+\addbibresource{references.bib}
 \MakePerPage{footnote} %the perpage package command
 % \usepackage[ruled,vlined]{algorithm2e}
 \PassOptionsToPackage{table}{xcolor}
@@ -40,7 +41,7 @@
 \let\endchangemargin=\endlist 
 
 \changefontsizes{13pt}
-\bibliographystyle{unsrt}
+% \bibliographystyle{unsrt}
 
 \makeatletter
 \def\l@figure{\@dottedtocline{1}{1em}{2.2em}}
@@ -63,8 +64,8 @@
 \setlength{\parskip}{0.6em}
 \setlength{\parindent}{1.5em}
 %
-\title{Tiêu đề khoá luận}	%% title
-\author{Nguyễn Văn A}			%% author's name
+\title{Hệ thống kết nối người yêu thích du lịch, lên kế hoạch và chia sẻ trải nghiệm}	%% title
+\author{Nguyễn Nhật Minh}			%% author's name
 
 %
 \newcommand{\argmax}{\arg\!\max}
@@ -132,25 +133,26 @@
 \input{chapters/acknowledgement}\newpage\cleardoublepage
 % Assurance
 \input{chapters/assurance}\newpage\cleardoublepage
-% Abstract Vietnamese
-\input{chapters/abtract_vi}\newpage\cleardoublepage
-% Abstract English
-\input{chapters/abtract_en}\newpage\cleardoublepage
+\input{chapters/summary.tex}\newpage\cleardoublepage
+% % Abstract Vietnamese
+% \input{chapters/abtract_vi}\newpage\cleardoublepage
+% % Abstract English
+% \input{chapters/abtract_en}\newpage\cleardoublepage
 \addcontentsline{toc}{chapter}{Mục lục}
 \tableofcontents\newpage\cleardoublepage
-%
+% %
 
-\newpage
-\addcontentsline{toc}{chapter}{\listfigurename}
-\listoffigures\cleardoublepage
+% \newpage
+% \addcontentsline{toc}{chapter}{\listfigurename}
+% \listoffigures\cleardoublepage
 
-\newpage
-\addcontentsline{toc}{chapter}{\listtablename}
-\listoftables
-
-\newpage
-\input{chapters/glossary}\newpage\cleardoublepage
+% \newpage
+% \addcontentsline{toc}{chapter}{\listtablename}
 % \listoftables
+
+% \newpage
+% \input{chapters/glossary}\newpage\cleardoublepage
+% % \listoftables
 
 \setcounter{page}{1}
 \pagenumbering{arabic}
@@ -158,13 +160,14 @@
 % \input{chapters/introduction}\newpage\cleardoublepage
 \input{chapters/c1/c1_chaper}\newpage\cleardoublepage
 \input{chapters/c2/c2_chapter}\newpage\cleardoublepage
-\input{chapters/c3/c3_chapter}\newpage\cleardoublepage
-\input{chapters/c4/c4_chapter}\newpage\cleardoublepage
-\input{chapters/conclusion}\newpage\cleardoublepage
+% \input{chapters/c3/c3_chapter}\newpage\cleardoublepage
+% \input{chapters/c4/c4_chapter}\newpage\cleardoublepage
+% \input{chapters/conclusion}\newpage\cleardoublepage
 
-%\nocite{*}
-\phantomsection 
-\addcontentsline{toc}{chapter}{Tài liệu tham khảo}
-\bibliography{references}\newpage\cleardoublepage
+% %\nocite{*}
+% \phantomsection 
+% \addcontentsline{toc}{chapter}{Tài liệu tham khảo}
+% \bibliography{references}\newpage\cleardoublepage
 % \bibliographystyle{plain}
+\printbibliography
 \end{document}
