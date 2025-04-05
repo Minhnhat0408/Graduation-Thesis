@@ -1,0 +1,50 @@
+\section{Cơ sở lý thuyết}
+\label{sec:fundamental_knowledge}
+\subsection{Nhận dạng thực thể tên (Named Entity Recognition - NER)}
+
+Nhận dạng thực thể tên (Named Entity Recognition - NER) là một nhiệm vụ cơ bản và là một nhánh con quan trọng của lĩnh vực Xử lý Ngôn ngữ Tự nhiên (NLP). Mục tiêu cốt lõi của NER là định vị và phân loại các từ hoặc cụm từ trong văn bản phi cấu trúc thành các danh mục được định nghĩa trước, thường được gọi là "thực thể tên". Các loại thực thể phổ biến nhất bao gồm tên người (Person - PER), tên tổ chức/công ty (Organization - ORG), địa điểm/địa danh (Location - LOC), và các loại khác như thời gian (Date/Time), giá trị tiền tệ (Money), tỷ lệ phần trăm (Percent), tên sản phẩm, v.v., tùy thuộc vào bộ dữ liệu và mục đích ứng dụng.
+
+Trong khuôn khổ dự án VieVu, kỹ thuật NER được ứng dụng trong việc nhận dạng và trích xuất các thực thể thuộc loại Địa điểm được đề cập trong các cuộc hội thoại về lập kế hoạch chuyến đi. Thư viện \texttt{underthesea} \cite{underthesea_lib} được sử dụng để hỗ trợ tác vụ NER cho tiếng Việt.
+
+\subsection{Phân loại Zero-Shot (Zero-Shot Classification)}
+
+Phân loại Zero-Shot (Zero-Shot Classification) là một kỹ thuật học máy thuộc lĩnh vực Zero-Shot Learning (ZSL) \cite{zsl_concept}, cho phép mô hình phân loại dữ liệu vào các lớp mà nó chưa hề được huấn luyện trực tiếp trên các mẫu thuộc lớp đó. Khả năng này vượt qua giới hạn của các mô hình phân loại có giám sát truyền thống, vốn đòi hỏi phải có dữ liệu huấn luyện được gán nhãn cho mọi lớp cần phân loại. ZSC đặc biệt hữu ích trong các tình huống mà việc thu thập dữ liệu có nhãn cho tất cả các lớp là khó khăn hoặc tốn kém, hoặc khi cần phân loại các lớp mới phát sinh mà không cần huấn luyện lại toàn bộ mô hình. Để thực hiện được điều này, các mô hình ZSC thường tận dụng một số dạng thông tin bổ sung hoặc kiến thức nền tảng để liên kết các lớp đã biết với các lớp chưa biết, ví dụ như thông qua mô tả ngữ nghĩa của các lớp, các thuộc tính chia sẻ, hoặc sử dụng các mô hình ngôn ngữ lớn đã được tiền huấn luyện trên dữ liệu khổng lồ.
+
+Trong hệ thống VieVu, kỹ thuật này được triển khai để giải quyết bài toán phân loại các tin nhắn trong nhóm chat thông qua mô hình XLM RoBERTA của Facebook. Mục tiêu là tự động xác định những tin nhắn chứa nội dung quan trọng liên quan đến việc lập kế hoạch và phân biệt chúng với các tin nhắn trò chuyện thông thường, từ đó thu thập thông tin hữu ích cho bước tạo lịch trình. 
+
+
+\subsection{Hệ thống gợi ý (Recommendation Systems)} 
+
+Hệ thống gợi ý (Recommendation Systems) là các thuật toán và kỹ thuật được thiết kế để đề xuất các đối tượng phù hợp nhất cho người dùng cụ thể, dựa trên dữ liệu về người dùng, đối tượng, và tương tác giữa chúng. VieVu áp dụng hai phương pháp tiếp cận nền tảng là Gợi ý dựa trên nội dung và Lọc cộng tác.
+
+\subsubsection{Gợi ý dựa trên nội dung (Content-Based Filtering - CB)\cite{cb_concept}} 
+Phương pháp này đề xuất đối tượng mới cho người dùng dựa trên sự tương đồng về \textbf{đặc điểm nội dung} của những đối tượng mà người dùng đó đã thể hiện sự yêu thích trong quá khứ. Hệ thống sẽ phân tích các thuộc tính, đặc trưng của đối tượng (ví dụ: thể loại, mô tả, từ khóa của địa điểm), xây dựng một hồ sơ phản ánh sở thích của người dùng qua nội dung các đối tượng đã tương tác, và sau đó tìm kiếm, đề xuất những đối tượng mới có nội dung phù hợp nhất với hồ sơ này.
+\textit{Ứng dụng trong VieVu: Dùng để gợi ý các địa điểm du lịch có nội dung liên quan đến địa điểm người dùng đang xem.}
+
+\subsubsection{Lọc cộng tác (Collaborative Filtering - CF)\cite{cf_concept}} 
+Phương pháp này đưa ra gợi ý bằng cách khai thác \textbf{hành vi và sở thích của cộng đồng người dùng}, thể hiện qua ma trận tương tác người dùng-đối tượng (ví dụ: ma trận ratings). Thay vì phân tích nội dung, hệ thống tìm kiếm các mẫu tương đồng trong cách người dùng tương tác với các đối tượng. Nó có thể xác định những người dùng có cùng sở thích, cùng đánh giá trong quá khứ hoặc những đối tượng thường được cộng đồng yêu thích cùng nhau, từ đó dự đoán và đề xuất những đối tượng mà người dùng hiện tại có khả năng sẽ thích. Các kỹ thuật như phân rã ma trận (Matrix Factorization) thường được sử dụng để khám phá các mối liên hệ tiềm ẩn này từ dữ liệu tương tác.
+\textit{VieVu áp dụng các nguyên tắc của CF làm cơ sở cho hệ thống gợi ý địa điểm chính, chủ yếu dựa trên dữ liệu đánh giá (ratings) của cộng đồng người dùng.}
+
+\subsection{Neural Network cho Hệ thống gợi ý}
+
+Mạng Nơ-ron nhân tạo (Neural Networks - NN), đặc biệt là các kiến trúc Học Sâu (Deep Learning), là một lớp mô hình học máy có khả năng học các biểu diễn phức tạp và phi tuyến tính từ dữ liệu. Chúng bao gồm các nơ-ron nhân tạo được kết nối với nhau qua các lớp, và trọng số của các kết nối này được điều chỉnh trong quá trình huấn luyện để tối ưu hóa một mục tiêu nào đó. Khả năng tự động trích xuất đặc trưng và mô hình hóa các mối quan hệ tiềm ẩn làm cho NN trở thành công cụ mạnh mẽ cho nhiều bài toán, bao gồm cả hệ thống gợi ý.
+
+Trong lĩnh vực gợi ý, NN được áp dụng hiệu quả để thực hiện Lọc cộng tác và xây dựng các hệ thống gợi ý lai. Một cách tiếp cận phổ biến là sử dụng NN để học các vector biểu diễn nhúng (embedding vectors) - là các vector dày đặc, ít chiều - cho cả người dùng và đối tượng từ ma trận tương tác (ví dụ: ratings). Các embeddings này cố gắng nắm bắt các đặc tính hoặc sở thích tiềm ẩn. Sau đó, sự tương tác hoặc mức độ phù hợp giữa người dùng và đối tượng có thể được dự đoán bằng cách kết hợp các vector embeddings tương ứng, ví dụ thông qua phép nhân vô hướng hoặc đưa chúng vào các lớp mạng nơ-ron phức tạp hơn để mô hình hóa các tương tác phi tuyến.
+
+Một ưu điểm đáng kể của việc sử dụng NN là khả năng dễ dàng tích hợp các thông tin phụ trợ vào mô hình gợi ý, chẳng hạn như đặc điểm của đối tượng hoặc thông tin về người dùng, tạo thành mô hình Hybrid. Đối với các đặc điểm dạng hạng mục như loại hình địa điểm ("Núi", "Biển"...), kỹ thuật tiền xử lý phổ biến là One-Hot Encoding  \cite{ohe_concept}. OHE biến đổi mỗi giá trị hạng mục thành một vector nhị phân duy nhất, cho phép mạng NN có thể tiếp nhận và xử lý các thông tin rời rạc này một cách hiệu quả trong quá trình học.
+
+\textit{Ứng dụng trong VieVu: Hệ thống gợi ý địa điểm chính của VieVu được xây dựng dựa trên mô hình Neural Network. Mô hình này học hỏi từ dữ liệu đánh giá (ratings) của người dùng (theo nguyên tắc CF) và đồng thời sử dụng các đặc điểm của địa điểm (đã được mã hóa bằng OHE) để đưa ra các đề xuất được cá nhân hóa.}
+
+
+\subsection{Cosine Similarity và Gợi ý dựa trên nội dung}
+
+
+% --- LƯU Ý VỀ CITATIONS ---
+% Các khóa \cite{bow_concept}, \cite{cosine_similarity_concept} cần có entry tương ứng trong tệp .bib
+
+Ngoài hệ thống gợi ý chính dựa trên Neural Network, VieVu còn triển khai một cơ chế gợi ý địa điểm liên quan khi người dùng xem chi tiết một địa điểm cụ thể. Cơ chế này hoạt động theo phương pháp Gợi ý dựa trên nội dung (Content-Based Recommendation), sử dụng phép đo độ tương đồng Cosine làm kỹ thuật cốt lõi.
+
+Để so sánh nội dung văn bản (như mô tả, thuộc tính) của các địa điểm, bước đầu tiên là chuyển đổi chúng thành các biểu diễn vector số học. Một kỹ thuật phổ biến cho việc này là Bag-of-Words (BoW) \cite{bow_concept}, trong đó mỗi văn bản được đại diện bởi một vector thể hiện tần suất xuất hiện của các từ trong một bộ từ vựng xác định, bỏ qua thứ tự và ngữ pháp.
+
+Sau khi các địa điểm đã được biểu diễn dưới dạng vector (ví dụ, thông qua BoW), Độ tương đồng Cosine (Cosine Similarity) \cite{cosine_similarity_concept} được sử dụng để định lượng mức độ giống nhau giữa chúng. Phép đo này tính giá trị cosin của góc hình thành bởi hai vector trong không gian đa chiều. Giá trị Cosine Similarity nằm trong khoảng [-1, 1], với giá trị càng gần 1 cho thấy hai vector càng có cùng hướng, đồng nghĩa với việc nội dung chúng biểu diễn càng tương đồng. Ngược lại, giá trị gần 0 biểu thị sự khác biệt hoặc không liên quan. Kỹ thuật này đặc biệt hữu dụng khi làm việc với các vector đặc trưng cho văn bản, vốn thường có số chiều rất lớn và dữ liệu thưa (sparse).
+

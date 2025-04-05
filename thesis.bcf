@@ -2378,6 +2378,19 @@
     <bcf:citekey order="4" intorder="1">tripcom</bcf:citekey>
     <bcf:citekey order="5" intorder="1">tripadvisor</bcf:citekey>
     <bcf:citekey order="6" intorder="1">tripit</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">flutter_doc</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">clean_arch</bcf:citekey>
+    <bcf:citekey order="9" intorder="1">bloc_package</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">supabase_doc</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">fastapi_doc</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">postgresql_doc</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">underthesea_lib</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">zsl_concept</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">cb_concept</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">cf_concept</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">ohe_concept</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">bow_concept</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">cosine_similarity_concept</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">
