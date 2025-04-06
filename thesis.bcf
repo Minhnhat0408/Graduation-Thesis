@@ -2385,12 +2385,14 @@
     <bcf:citekey order="11" intorder="1">fastapi_doc</bcf:citekey>
     <bcf:citekey order="12" intorder="1">postgresql_doc</bcf:citekey>
     <bcf:citekey order="13" intorder="1">underthesea_lib</bcf:citekey>
-    <bcf:citekey order="14" intorder="1">zsl_concept</bcf:citekey>
-    <bcf:citekey order="15" intorder="1">cb_concept</bcf:citekey>
-    <bcf:citekey order="16" intorder="1">cf_concept</bcf:citekey>
-    <bcf:citekey order="17" intorder="1">ohe_concept</bcf:citekey>
-    <bcf:citekey order="18" intorder="1">bow_concept</bcf:citekey>
-    <bcf:citekey order="19" intorder="1">cosine_similarity_concept</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">ner_concept</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">xlm_roberta_xnli_model</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">xlm_roberta_paper</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">cb_concept</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">cf_concept</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">ohe_concept</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">bow_concept</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">cosine_similarity_concept</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">
