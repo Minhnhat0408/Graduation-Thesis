@@ -1,0 +1,48 @@
+\section{Đặc tả yêu cầu}
+
+\subsection{Yêu cầu chức năng}
+
+Để hệ thống VieVu hoạt động hiệu quả, đáp ứng nhu cầu kết nối, lập kế hoạch và chia sẻ trải nghiệm du lịch nhóm một cách thông minh và tiện lợi, các yêu cầu chức năng chính được xác định như sau:
+
+\begin{itemize}
+    \item[-] \textbf{Đăng ký và xác thực người dùng:} Hệ thống cung cấp chức năng cho người dùng đăng ký tài khoản mới và đăng nhập vào ứng dụng. bao gồm bước xác thực các thông tin người dùng như email, tên và các thông tin không bắt buộc khác.
+    \item[-] \textbf{Quản lý và tương tác với hồ sơ người dùng:} Hệ thống cho phép người dùng đã đăng nhập có thể xem và cập nhật thông tin trong hồ sơ cá nhân của họ. Ngoài ra, người dùng có thể xem hồ sơ của người dùng khác với các thông tin như ảnh đại diện, tên, email, sđt,...
+    \item[-] \textbf{Tra cứu và hiển thị Thông tin Du lịch:} Cho phép người dùng tra cứu, Lọc thông tin về các địa điểm, sự kiện du lịch và hiển thị chi tiết thông tin (mô tả, hình ảnh, vị trí,...) của địa điểm đó dưới dạng danh sách hoặc một giao diện bản đồ tương tác.
+    \item[-] \textbf{Quản lý và tương tác với chuyến đi:} Hệ thống cho phép người dùng tạo mới một chuyến đi, chỉnh sửa các thông tin liên quan đến chuyến đi đó, và có thể hủy chuyến đi nếu muốn. Bên cạnh đó, người dùng có thể xem và tham gia chuyến đi của người dùng khác nếu chuyến đi đó công khai.
+    \item[-] \textbf{Quản lý và ủy quyền thành viên trong chuyến đi:} Hệ thống cho phép chủ chuyến đi có thể mời, xóa hoặc ủy quyền cho các thành viên khác trong chuyến đi, hỗ trợ việc quản lý quyền truy cập của các thành viên trong chuyến đi, cho phép chủ chuyến đi quyết định ai có thể xem và chỉnh sửa thông tin chuyến đi.
+    \item[-] \textbf{Quản lý và tương tác với lịch trình chuyến đi:} Hệ thống cho phép người dùng tạo, xóa, sửa lịch trình cho chuyến đi của mình. Ngoài ra, có thể xem lịch trình dưới dạng danh sách hoặc bản đồ tương tác và đánh dấu hoàn thành lịch trình đó.
+    \item[-] \textbf{Lưu các địa điểm yêu thích:} Hệ thống cho phép người dùng lưu lại các địa điểm yêu thích của mình vào chuyến đi mà họ tham gia để dễ dàng truy cập và dùng nguyên liệu tạo lịch trình.
+    \item[-] \textbf{Nhắn tin giao tiếp:} Hệ thống phải cung cấp chức năng nhắn tin riêng giữa các người dùng và nhắn tin nội bộ của thành viên trong chuyến đi, cho phép họ trao đổi thông tin, ý kiến và thảo luận về các hoạt động trong chuyến đi.
+    \item[-] \textbf{Tổng hợp lịch trình:} Hệ thống khi được người dùng yêu cầu phải phân tích nội dung cuộc trò chuyện trong nhóm chat, tự động tóm tắt các ý kiến chính và đưa ra một bản nháp lịch trình cho chuyến đi dựa trên hội thoại đó.
+    \item[-] \textbf{Nhận diện địa điểm trong tin nhắn:} Hệ thống cần tự động nhận diện và làm nổi bật tên các địa điểm, địa chỉ xuất hiện trong nội dung tin nhắn của nhóm chat và cho phép người dùng bấm vào các tên địa điểm đã được làm nổi bật này để xem nhanh thông tin chi tiết liên quan đến địa điểm đó.
+    \item[-] \textbf{Bỏ phiếu lịch trình trong tin nhắn:} Hệ thống cần cho phép các thành viên trong nhóm chat của chuyến đi có thể bỏ phiếu hoặc bày tỏ sự đồng tình/phản đối đối với một lịch trình có trong tin nhắn, bằng cách sử dụng các biểu tượng phản hồi (reaction).
+    \item[-] \textbf{Tự động cập nhật trạng thái chuyến đi:} Hệ thống phải có khả năng tự động cập nhật trạng thái của một chuyến đi (ví dụ: Sắp diễn ra, Đang diễn ra, Đã kết thúc) dựa trên thời gian hiện tại so với lịch trình đã được thiết lập.
+    \item[-] \textbf{Chia sẻ vị trí thời gian thực:} Khi một chuyến đi đang ở trạng thái "Đang diễn ra", hệ thống phải cho phép các thành viên (nếu họ đồng ý) chia sẻ vị trí địa lý hiện tại của mình với những thành viên khác trong nhóm một cách trực tiếp theo thời gian thực.
+    \item[-] \textbf{Đánh giá sau chuyến đi:} Sau khi chuyến đi kết thúc, hệ thống phải cho phép người dùng đăng tải bài đánh giá (review) về trải nghiệm của họ. Đồng thời, hệ thống phải cung cấp chức năng cho phép các thành viên trong cùng chuyến đi đánh giá lẫn nhau.
+    \item[-] \textbf{Thông báo Hệ thống:} Hệ thống cần cung cấp cơ chế gửi và hiển thị thông báo cho người dùng về các sự kiện hoặc cập nhật quan trọng. Ví dụ bao gồm: thông báo khi có lời mời tham gia chuyến đi, có tin nhắn mới trong nhóm chat, trạng thái chuyến đi thay đổi, hoặc khi sắp đến một hoạt động trong lịch trình.
+    \item[-] \textbf{Hệ thống Gợi ý:} Hệ thống cần tích hợp chức năng gợi ý thông minh để đề xuất các nội dung phù hợp cho người dùng, nhằm tăng cường khả năng khám phá và hỗ trợ lập kế hoạch. Các gợi ý này có thể bao gồm đề xuất địa điểm du lịch được cá nhân hóa dựa trên sở thích/hành vi, và gợi ý các địa điểm liên quan khi người dùng đang xem thông tin của một địa điểm cụ thể.
+\end{itemize}
+
+\subsection{Đặc tả yêu cầu phi chức năng}
+\label{subsec:non_functional_requirements}
+
+Ngoài các yêu cầu về chức năng, hệ thống VieVu cần đáp ứng các yêu cầu phi chức năng để đảm bảo chất lượng, hiệu quả hoạt động và trải nghiệm người dùng tốt. Các yêu cầu này xác định các thuộc tính chất lượng và các ràng buộc của hệ thống, bao gồm:
+
+\begin{itemize}
+    \item[-] \textbf{Hiệu năng hệ thống:} Hệ thống cần đảm bảo tốc độ phản hồi nhanh chóng cho mọi tương tác của người dùng trên giao diện. Thời gian tải dữ liệu ban đầu (danh sách chuyến đi, bản đồ, địa điểm) cần được tối ưu (mục tiêu dưới 3 giây). Các tính năng thời gian thực như chat và chia sẻ vị trí phải có độ trễ thấp (dưới 2 giây trong điều kiện mạng tốt). Thời gian xử lý cho các tác vụ AI (tóm tắt lịch trình, gợi ý) phải hợp lý, không gây cảm giác chờ đợi lâu (mục tiêu dưới 10-15 giây).
+
+    \item[-] \textbf{Bảo mật và Toàn vẹn Dữ liệu:} Hệ thống phải ưu tiên hàng đầu việc bảo vệ thông tin cá nhân, dữ liệu vị trí, nội dung trò chuyện và kế hoạch chuyến đi của người dùng. Cần áp dụng mã hóa cho dữ liệu nhạy cảm khi lưu trữ và truyền tải, cùng với cơ chế xác thực mạnh mẽ và phân quyền truy cập chi tiết (ví dụ: RLS) để ngăn chặn truy cập trái phép và đảm bảo tính toàn vẹn, không mất mát dữ liệu.
+
+    \item[-] \textbf{Độ chính xác và Tin cậy của AI:} Các thuật toán AI cần hoạt động hiệu quả và đáng tin cậy. Chức năng NER cần nhận diện chính xác phần lớn tên địa điểm được đề cập. Chức năng ZSC cần lọc tương đối đúng các tin nhắn liên quan đến kế hoạch. Chức năng tóm tắt lịch trình cần nắm bắt được ý chính và tạo ra kết quả có ý nghĩa. Hệ thống gợi ý cần cung cấp các đề xuất phù hợp với người dùng ở mức độ hữu ích.
+
+    \item[-] \textbf{Khả năng mở rộng:} Kiến trúc hệ thống, bao gồm cả cơ sở dữ liệu và các dịch vụ backend (Supabase, FastAPI server), phải có khả năng mở rộng (scale) để xử lý hiệu quả lượng người dùng, số lượng chuyến đi và khối lượng dữ liệu ngày càng tăng mà không làm suy giảm đáng kể hiệu suất tổng thể.
+
+    \item[-] \textbf{Tính khả dụng và Dễ sử dụng:} Dịch vụ backend phải duy trì độ sẵn sàng cao (ví dụ: uptime > 99.5\%) để người dùng truy cập được mọi lúc. Giao diện người dùng của ứng dụng phải được thiết kế trực quan, thẩm mỹ, dễ hiểu và dễ thao tác, giúp người dùng mới có thể nhanh chóng làm quen và sử dụng các tính năng chính một cách thuận lợi.
+
+    \item[-] \textbf{Tối ưu Tài nguyên Thiết bị:} Ứng dụng VieVu trên di động cần được tối ưu để hoạt động mượt mà, sử dụng hiệu quả tài nguyên hệ thống như CPU, bộ nhớ (RAM) và đặc biệt là tiết kiệm năng lượng pin, nhất là khi chạy các tác vụ nền hoặc sử dụng tính năng chia sẻ vị trí.
+
+    \item[-] \textbf{Tính tương thích:} Ứng dụng cần đảm bảo khả năng tương thích và hoạt động ổn định trên một dải rộng các thiết bị di động và phiên bản hệ điều hành phổ biến (ví dụ: mục tiêu hỗ trợ Android 8.0+ và iOS 14+), cũng như hiển thị tốt trên các kích thước màn hình khác nhau.
+
+    \item[-] \textbf{Cập nhật Thời gian thực Mượt mà:} Các thông tin yêu cầu cập nhật theo thời gian thực (tin nhắn chat mới, vị trí thành viên đang chia sẻ, trạng thái chuyến đi thay đổi) cần được phản ánh trên giao diện người dùng một cách nhanh chóng, gần như tức thì và mượt mà, không gây cảm giác trễ hoặc giật cục.
+
+\end{itemize}
