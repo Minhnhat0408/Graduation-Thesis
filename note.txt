@@ -1,0 +1,6 @@
+bỏ lịch trình
+kiểm thử API -> viết các bảng thống kê xem có các route nào, mỗi route kịch bảng gì, kết quả gì, mong đợi gì
+thay tất cả dấu "..." -> "v.v."> VD: ảnh, nhóm, ... -> "ảnh, nhóm, v.v. Và ngoài ra"
+bỏ cap màn hình + miêu tả đăng nhập + đăng ký trong phần 4.2
+max 10 cái mô tả use case
+add descipriton cho từng bảng trong mô tả use case
