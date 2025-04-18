@@ -1,0 +1,53 @@
+\subsection{Ca sử dụng mời bạn bè tham gia chuyến đi}
+\vspace{0.5cm}
+
+
+\noindent 
+\begin{tabularx}{\linewidth}{| l | X |} 
+\hline 
+\textbf{Mô tả} & Người dùng có thể mời bạn bè tham gia chuyến đi của mình hoặc mình tham gia. \\
+\hline 
+\textbf{Luồng cơ bản} & 1. Người dùng chọn một chuyến đi muốn mời bạn bé. \newline
+                        2. Hệ thống lây dữ liệu chi tiết của chuyến đi và hiển thị. \newline
+                        3. Người dùng bấm "Mời thành viên". \newline
+                        4. Hệ thống điều hướng sang trang thêm thành viên và hiển thị thanh tìm kiếm. \newline
+                        5. Người dùng nhập tên thành viên muốn mời. \newline
+                        6. Hệ thống tìm kiếm và hiển thị danh sách các tài khoản phù hợpvới từ khóa tìm kiếm. \newline
+                        7. Người dùng chọn các tài khoản muốn mời. \newline
+                        8. Hệ thống gửi thông báo mời vào chuyến đi và thông báo đã mời thành công. \\
+               
+\hline 
+\textbf{Luồng thay thế} & Người dùng được mời đã tham gia hoặc đã từ chối sẽ không được gửi thông báo tiếp. \\
+       
+\hline 
+\textbf{Tiền điều kiện} & - Người dùng đang đăng nhập và phiên đăng nhập chưa kết thúc.\newline
+                        - Người dùng đã tạo hoặc tham gia ít nhất một chuyến đi. \newline
+                        - Chuyến đi phải là chuyến di công khai.\newline
+                        - Trạng thái chuyến đi khác "Đã hoàn thành" và "Hủy". \\
+
+\hline 
+\textbf{Hậu điều kiện} & - Hệ thống gửi thông báo mời vào chuyến đi cho các tài khoản được chọn. \\
+\hline 
+\textbf{Yêu cầu phi chức năng} & Hệ thống gửi lời mời bạn bè dưới 1s với 1 tài khoản \\
+\hline 
+\end{tabularx}
+
+\noindent 
+\begin{tabular}{| c | c |}
+    \hline
+    \textbf{Biểu đồ hoạt động} & \textbf{Quan hệ} \\ 
+    \hline
+    \includegraphics[width=0.5\linewidth]{figures/c3/3-3-14-ad.png} 
+    & 
+    \includegraphics[width=0.45\linewidth]{figures/c3/3-3-14-rd.png} \\ 
+    \hline
+\end{tabular}
+
+\vspace{0.8cm}
+
+\begin{figure}[H]
+    \centering  
+    \includegraphics[width=0.9\textwidth]{figures/c3/3-3-14-sd.png}
+    \caption{Biểu đồ tuần tự ca sử dụng mời bạn bè tham gia chuyến đi.}
+    \label{fig:3-3-14-sequence-diagram}
+\end{figure}
