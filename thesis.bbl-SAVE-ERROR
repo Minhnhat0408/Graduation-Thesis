@@ -1,0 +1,332 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{bloc_package}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=1fa4ae3ac795423df56a45630561839f}{%
+           family={Angelov},
+           familyi={A\bibinitperiod},
+           given={Felix},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{1fa4ae3ac795423df56a45630561839f}
+      \strng{fullhash}{1fa4ae3ac795423df56a45630561839f}
+      \strng{fullhashraw}{1fa4ae3ac795423df56a45630561839f}
+      \strng{bibnamehash}{1fa4ae3ac795423df56a45630561839f}
+      \strng{authorbibnamehash}{1fa4ae3ac795423df56a45630561839f}
+      \strng{authornamehash}{1fa4ae3ac795423df56a45630561839f}
+      \strng{authorfullhash}{1fa4ae3ac795423df56a45630561839f}
+      \strng{authorfullhashraw}{1fa4ae3ac795423df56a45630561839f}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://pub.dev/packages/flutter_bloc}}
+      \field{note}{Truy cập ngày 03-04-2025}
+      \field{title}{flutter\_bloc package}
+      \field{year}{2025}
+    \endentry
+    \entry{bvhttdl2024}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=6258b76773a36a1a4f06e1acebff031a}{%
+           family={Bộ\bibnamedelima Văn\bibnamedelima hóa},
+           familyi={B\bibinitperiod\bibinitdelim V\bibinitperiod\bibinitdelim h\bibinitperiod},
+           given={Thể\bibnamedelimb thao\bibnamedelimb và\bibnamedelimb Du\bibnamedelima lịch},
+           giveni={T\bibinitperiod\bibinitdelim t\bibinitperiod\bibinitdelim v\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim l\bibinitperiod}}}%
+      }
+      \strng{namehash}{6258b76773a36a1a4f06e1acebff031a}
+      \strng{fullhash}{6258b76773a36a1a4f06e1acebff031a}
+      \strng{fullhashraw}{6258b76773a36a1a4f06e1acebff031a}
+      \strng{bibnamehash}{6258b76773a36a1a4f06e1acebff031a}
+      \strng{authorbibnamehash}{6258b76773a36a1a4f06e1acebff031a}
+      \strng{authornamehash}{6258b76773a36a1a4f06e1acebff031a}
+      \strng{authorfullhash}{6258b76773a36a1a4f06e1acebff031a}
+      \strng{authorfullhashraw}{6258b76773a36a1a4f06e1acebff031a}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Truy cập ngày 29/03/2025}
+      \field{title}{2024: Năm khởi sắc của du lịch Việt Nam}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://bvhttdl.gov.vn/2024-nam-khoi-sac-cua-du-lich-viet-nam-20250102081702859.htm
+      \endverb
+      \verb{url}
+      \verb https://bvhttdl.gov.vn/2024-nam-khoi-sac-cua-du-lich-viet-nam-20250102081702859.htm
+      \endverb
+    \endentry
+    \entry{clean_arch}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=c047b10eee763afb6164e077cf1cc268}{%
+           family={Flutter},
+           familyi={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{c047b10eee763afb6164e077cf1cc268}
+      \strng{fullhash}{c047b10eee763afb6164e077cf1cc268}
+      \strng{fullhashraw}{c047b10eee763afb6164e077cf1cc268}
+      \strng{bibnamehash}{c047b10eee763afb6164e077cf1cc268}
+      \strng{authorbibnamehash}{c047b10eee763afb6164e077cf1cc268}
+      \strng{authornamehash}{c047b10eee763afb6164e077cf1cc268}
+      \strng{authorfullhash}{c047b10eee763afb6164e077cf1cc268}
+      \strng{authorfullhashraw}{c047b10eee763afb6164e077cf1cc268}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Truy cập ngày 03-04-2025}
+      \field{title}{Guide to app architecture}
+      \verb{urlraw}
+      \verb https://docs.flutter.dev/app-architecture/guide
+      \endverb
+      \verb{url}
+      \verb https://docs.flutter.dev/app-architecture/guide
+      \endverb
+    \endentry
+    \entry{flutter_doc}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=8b36e9207c24c76e6719268e49201d94}{%
+           family={{Google}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{fullhash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{fullhashraw}{8b36e9207c24c76e6719268e49201d94}
+      \strng{bibnamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorbibnamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authornamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorfullhash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorfullhashraw}{8b36e9207c24c76e6719268e49201d94}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://docs.flutter.dev/}}
+      \field{note}{Truy cập ngày 03-04-2025}
+      \field{title}{Flutter Documentation}
+      \field{year}{2025}
+    \endentry
+    \entry{mytour}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=a24cfbee7cf805e8a7e3f1ee22ba04a4}{%
+           family={{MyTour}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{a24cfbee7cf805e8a7e3f1ee22ba04a4}
+      \strng{fullhash}{a24cfbee7cf805e8a7e3f1ee22ba04a4}
+      \strng{fullhashraw}{a24cfbee7cf805e8a7e3f1ee22ba04a4}
+      \strng{bibnamehash}{a24cfbee7cf805e8a7e3f1ee22ba04a4}
+      \strng{authorbibnamehash}{a24cfbee7cf805e8a7e3f1ee22ba04a4}
+      \strng{authornamehash}{a24cfbee7cf805e8a7e3f1ee22ba04a4}
+      \strng{authorfullhash}{a24cfbee7cf805e8a7e3f1ee22ba04a4}
+      \strng{authorfullhashraw}{a24cfbee7cf805e8a7e3f1ee22ba04a4}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Truy cập ngày 30/03/2025}
+      \field{title}{MyTour - Đặt phòng khách sạn trực tuyến}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://www.mytour.vn
+      \endverb
+      \verb{url}
+      \verb https://www.mytour.vn
+      \endverb
+    \endentry
+    \entry{postgresql_doc}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=36423acfb135ffe286ea438eafcb0bc6}{%
+           family={{PostgreSQL Global Development Group}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{36423acfb135ffe286ea438eafcb0bc6}
+      \strng{fullhash}{36423acfb135ffe286ea438eafcb0bc6}
+      \strng{fullhashraw}{36423acfb135ffe286ea438eafcb0bc6}
+      \strng{bibnamehash}{36423acfb135ffe286ea438eafcb0bc6}
+      \strng{authorbibnamehash}{36423acfb135ffe286ea438eafcb0bc6}
+      \strng{authornamehash}{36423acfb135ffe286ea438eafcb0bc6}
+      \strng{authorfullhash}{36423acfb135ffe286ea438eafcb0bc6}
+      \strng{authorfullhashraw}{36423acfb135ffe286ea438eafcb0bc6}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.postgresql.org/docs/}}
+      \field{note}{Truy cập ngày 03-04-2025}
+      \field{title}{PostgreSQL Documentation}
+      \field{year}{2025}
+    \endentry
+    \entry{fastapi_doc}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=f5305ee02dd2a5c6215b53401b4a10b0}{%
+           family={Ramírez},
+           familyi={R\bibinitperiod},
+           given={Sebastián},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{f5305ee02dd2a5c6215b53401b4a10b0}
+      \strng{fullhash}{f5305ee02dd2a5c6215b53401b4a10b0}
+      \strng{fullhashraw}{f5305ee02dd2a5c6215b53401b4a10b0}
+      \strng{bibnamehash}{f5305ee02dd2a5c6215b53401b4a10b0}
+      \strng{authorbibnamehash}{f5305ee02dd2a5c6215b53401b4a10b0}
+      \strng{authornamehash}{f5305ee02dd2a5c6215b53401b4a10b0}
+      \strng{authorfullhash}{f5305ee02dd2a5c6215b53401b4a10b0}
+      \strng{authorfullhashraw}{f5305ee02dd2a5c6215b53401b4a10b0}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://fastapi.tiangolo.com/}}
+      \field{note}{Truy cập ngày 03-04-2025}
+      \field{title}{FastAPI Documentation}
+      \field{year}{2025}
+    \endentry
+    \entry{supabase_doc}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=af07a053f31f1c94fcf389327c68f6dd}{%
+           family={{Supabase}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{af07a053f31f1c94fcf389327c68f6dd}
+      \strng{fullhash}{af07a053f31f1c94fcf389327c68f6dd}
+      \strng{fullhashraw}{af07a053f31f1c94fcf389327c68f6dd}
+      \strng{bibnamehash}{af07a053f31f1c94fcf389327c68f6dd}
+      \strng{authorbibnamehash}{af07a053f31f1c94fcf389327c68f6dd}
+      \strng{authornamehash}{af07a053f31f1c94fcf389327c68f6dd}
+      \strng{authorfullhash}{af07a053f31f1c94fcf389327c68f6dd}
+      \strng{authorfullhashraw}{af07a053f31f1c94fcf389327c68f6dd}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://supabase.com/docs}}
+      \field{note}{Truy cập ngày 03-04-2025}
+      \field{title}{Supabase Documentation}
+      \field{year}{2025}
+    \endentry
+    \entry{tripcom}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=220240b813d07224304e1076bd929ae5}{%
+           family={Trip.com},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{220240b813d07224304e1076bd929ae5}
+      \strng{fullhash}{220240b813d07224304e1076bd929ae5}
+      \strng{fullhashraw}{220240b813d07224304e1076bd929ae5}
+      \strng{bibnamehash}{220240b813d07224304e1076bd929ae5}
+      \strng{authorbibnamehash}{220240b813d07224304e1076bd929ae5}
+      \strng{authornamehash}{220240b813d07224304e1076bd929ae5}
+      \strng{authorfullhash}{220240b813d07224304e1076bd929ae5}
+      \strng{authorfullhashraw}{220240b813d07224304e1076bd929ae5}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.trip.com}}
+      \field{note}{Truy cập ngày 31 tháng 3 năm 2025}
+      \field{title}{Trip.com}
+    \endentry
+    \entry{tripadvisor}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=d00887917cf4ecf7a02ef188112ff63f}{%
+           family={TripAdvisor},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{d00887917cf4ecf7a02ef188112ff63f}
+      \strng{fullhash}{d00887917cf4ecf7a02ef188112ff63f}
+      \strng{fullhashraw}{d00887917cf4ecf7a02ef188112ff63f}
+      \strng{bibnamehash}{d00887917cf4ecf7a02ef188112ff63f}
+      \strng{authorbibnamehash}{d00887917cf4ecf7a02ef188112ff63f}
+      \strng{authornamehash}{d00887917cf4ecf7a02ef188112ff63f}
+      \strng{authorfullhash}{d00887917cf4ecf7a02ef188112ff63f}
+      \strng{authorfullhashraw}{d00887917cf4ecf7a02ef188112ff63f}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.tripadvisor.com}}
+      \field{note}{Truy cập ngày 31 tháng 3 năm 2025}
+      \field{title}{TripAdvisor}
+    \endentry
+    \entry{triphunter}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=5a6daaa8bce04d9e0a86c8b075132fe7}{%
+           family={{TripHunter}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{5a6daaa8bce04d9e0a86c8b075132fe7}
+      \strng{fullhash}{5a6daaa8bce04d9e0a86c8b075132fe7}
+      \strng{fullhashraw}{5a6daaa8bce04d9e0a86c8b075132fe7}
+      \strng{bibnamehash}{5a6daaa8bce04d9e0a86c8b075132fe7}
+      \strng{authorbibnamehash}{5a6daaa8bce04d9e0a86c8b075132fe7}
+      \strng{authornamehash}{5a6daaa8bce04d9e0a86c8b075132fe7}
+      \strng{authorfullhash}{5a6daaa8bce04d9e0a86c8b075132fe7}
+      \strng{authorfullhashraw}{5a6daaa8bce04d9e0a86c8b075132fe7}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Truy cập ngày 30/03/2025}
+      \field{title}{TripHunter - Lập kế hoạch du lịch tự động}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://www.triphunter.vn
+      \endverb
+      \verb{url}
+      \verb https://www.triphunter.vn
+      \endverb
+    \endentry
+    \entry{tripit}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=c2d62348aabe4eae5761382401774a22}{%
+           family={TripIt},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{c2d62348aabe4eae5761382401774a22}
+      \strng{fullhash}{c2d62348aabe4eae5761382401774a22}
+      \strng{fullhashraw}{c2d62348aabe4eae5761382401774a22}
+      \strng{bibnamehash}{c2d62348aabe4eae5761382401774a22}
+      \strng{authorbibnamehash}{c2d62348aabe4eae5761382401774a22}
+      \strng{authornamehash}{c2d62348aabe4eae5761382401774a22}
+      \strng{authorfullhash}{c2d62348aabe4eae5761382401774a22}
+      \strng{authorfullhashraw}{c2d62348aabe4eae5761382401774a22}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.tripit.com}}
+      \field{note}{Truy cập ngày 31 tháng 3 năm 2025}
+      \field{title}{TripIt}
+    \endentry
+  \enddatalist
+  \missing{bow_concept}
+  \missing{cb_concept}
+  \missing{cf_concept}
+  \missing{cosine_similarity_concept}
+  \missing{ner_concept}
+  \missing{ohe_concept}
+  \missing{underthesea_lib}
+  \missing{xlm_roberta_paper}
+  \missing{xlm_roberta_xnli_model}
+\endrefsection
+\endinput
+
