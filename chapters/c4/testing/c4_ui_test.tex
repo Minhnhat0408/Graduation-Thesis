@@ -1,0 +1,50 @@
+\subsection{Kiểm thử tương tác người dùng trên giao diện ứng dụng}
+
+Hệ thống VieVu thực hiện kiểm thử tương tác người dùng trên giao diện với các ca kiểm thử tính năng chính của hệ thống được báo cáo lại trong bảng \ref{tab:ui-test-cases}.
+
+\small
+\begin{xltabular}{\textwidth}{|c|p{5cm}|X|c|}
+    \caption{Các kịch bản kiểm thử tương tác người dùng} \label{tab:ui-test-cases} \\
+    \hline
+    \textbf{STT} & \textbf{Ca kiểm thử} & \textbf{Kết quả kỳ vọng} & \textbf{Tình trạng} \\
+    \hline
+    \endfirsthead
+    
+    % \multicolumn{4}{c}{\tablename\ \thetable{} (tiếp theo)} \\
+    \hline
+    \textbf{STT} & \textbf{Ca kiểm thử} & \textbf{Kết quả kỳ vọng} & \textbf{Tình trạng} \\
+    \hline
+    \endhead
+    
+    \hline 
+    % \multicolumn{4}{r}{\textit{Tiếp trang sau}} \\
+    \endfoot
+    
+    \hline
+    \endlastfoot
+    
+    1 & Đăng nhập với tài khoản hợp lệ & Người dùng được chuyển hướng đến trang chủ hiển thị các bài viết chuyến đi & Đạt \\
+    \hline
+    2 & Đăng nhập với mật khẩu không chính xác & Hiển thị thông báo lỗi "Email hoặc mật khẩu không đúng" & Đạt \\
+    \hline
+    3 & Đăng ký tài khoản mới thành công & Người dùng được chuyển hướng đến trang điền khảo sát sở thích & Đạt \\
+    \hline
+    4 & Chỉnh sửa thông tin người dùng & Hệ thống lưu thông tin cập nhật và thông báo thành công & Đạt \\
+    \hline
+    5 & Tìm kiếm địa điểm, sự kiện du lịch & Hiển thị danh sách các kết quả có liên quan đến từ khóa & Đạt \\
+    \hline
+    6 & Lưu các địa điểm sự kiện quan tâm vào chuyến đi của bản thân & Hệ thống lưu các mục vào trong chuyến đi người dùng chọn & Đạt \\
+    % \hline
+    % 7 & Tạo chuyến đi mặc định với tên mới & Chuyến đi được tạo với tên đã nhập và chưa có thông tin nào khác & Đạt \\
+    \hline
+    7 & Mời người dùng khác tham gia chuyến đi & Người dùng nhận được thông báo mời tham gia chuyến đi & Đạt \\
+    \hline
+    8 & Chia sẻ vị trí khi chuyến đi bắt đầu & Hiển thị bản đồ với vị trí của người dùng và các thành viên trong chuyến đi & Đạt \\
+    \hline
+    % 10 & Viết review cho chuyến đi đã hoàn thành & Hệ thống lưu lại review và hiển thị trên trong trang chi tiết chuyến đi & Đạt \\
+    % \hline
+    9 & Gửi tin nhắn cho các thành viên trong chuyến đi & Hiển thị tin nhắn trong đoạn hội thoại trong thời gian thực và highlight tên địa điểm nếu có & Đạt \\
+    \hline
+    10 & Tóm tắt lịch trình chuyến đi từ hội thoại & Hiển thị danh sách lịch trình được tổng hợp từ đoạn hội thoại và có thể truy vết lại đoạn tin nhắn đưa ra lịch trình đó & Đạt \\
+
+\end{xltabular}

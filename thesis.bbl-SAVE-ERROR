@@ -324,7 +324,10 @@
   \missing{cosine_similarity_concept}
   \missing{ner_concept}
   \missing{ohe_concept}
+  \missing{postman}
+  \missing{pytest}
   \missing{underthesea_lib}
+  \missing{unittest}
   \missing{xlm_roberta_paper}
   \missing{xlm_roberta_xnli_model}
 \endrefsection

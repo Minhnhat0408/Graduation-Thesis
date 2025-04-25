@@ -1,4 +1,5 @@
 \section{Thiết kế cơ sở dữ liệu}
+\label{sec:3-4-database}
 
 
 Dựa theo những yêu cầu và thiết kế, cơ sở dữ liệu của hệ thống VieVu được thiết kế theo mô hình quan hệ như minh họa trong Hình~\ref{fig:3-4-database}. % <<< !!! NHỚ THAY LABEL FIG ĐÚNG !!!
@@ -7,9 +8,9 @@ Hệ thống sử dụng CSDL PostgreSQL được host và quản lý trên nề
 \begin{itemize}
     \item \textbf{trips}: Bảng trung tâm lưu trữ thông tin về các chuyến đi. Các trường chính gồm \texttt{id} (PK), \texttt{owner\_id} (FK đến \texttt{profiles}), \texttt{name}, \texttt{description}, \texttt{start\_date}, \texttt{end\_date}, \texttt{status}, \texttt{is\_published}, \texttt{cover} (URL ảnh bìa), \texttt{locations} (mảng xâu kí tự tên các địa điểm chính của chuyến đi).
 
-    \item \textbf{trip\_participants}: Bảng liên kết nhiều-nhiều giữa người dùng (\texttt{profiles}) và chuyến đi (\texttt{trips}), thể hiện thành viên tham gia và vai trò của họ trong chuyến đi. Chứa \texttt{user\_id}, \texttt{trip\_id}, \texttt{role} ('owner', 'member',...), \texttt{is\_banned}.
+    \item \textbf{trip\_participants}: Bảng liên kết nhiều-nhiều giữa người dùng (\texttt{profiles}) và chuyến đi (\texttt{trips}), thể hiện thành viên tham gia và vai trò của họ trong chuyến đi. Chứa \texttt{user\_id}, \texttt{trip\_id}, \texttt{role} ('owner', 'member',v.v.), \texttt{is\_banned}.
 
-    \item \textbf{saved\_services}: Lưu trữ các dịch vụ/địa điểm được người dùng lưu lại để cân nhắc lên lịch trình cho chuyến đi. Chứa \texttt{id} (PK), \texttt{trip\_id} (FK đến \texttt{trips}), \texttt{external\_link}, \texttt{name}, \texttt{location\_name}, \texttt{latitude}, \texttt{longitude}, \texttt{price}, \texttt{event\_date},... (Có vẻ bảng này khá đa năng, cần xem xét lại thiết kế nếu cần).
+    \item \textbf{saved\_services}: Lưu trữ các dịch vụ/địa điểm được người dùng lưu lại để cân nhắc lên lịch trình cho chuyến đi. Chứa \texttt{id} (PK), \texttt{trip\_id} (FK đến \texttt{trips}), \texttt{external\_link}, \texttt{name}, \texttt{location\_name}, \texttt{latitude}, \texttt{longitude}, \texttt{price}, \texttt{event\_date},v.v.
 
     \item \textbf{trip\_itineraries}: Lưu trữ lịch trình chi tiết theo ngày/giờ của chuyến đi, liên kết với các dịch vụ đã lưu. Gồm \texttt{id} (PK), \texttt{trip\_id} (FK đến \texttt{trips}), \texttt{service\_id} (FK đến \texttt{saved\_services}), \texttt{title}, \texttt{latitude}, \texttt{longitude}, \texttt{ts\_time} (thời gian bắt đầu).
 
@@ -19,7 +20,7 @@ Hệ thống sử dụng CSDL PostgreSQL được host và quản lý trên nề
 
     \item \textbf{locations}: Lưu trữ dữ liệu về các điểm đến ở Việt Nam (các tỉnh thành, quận,v.v.). Chứa \texttt{id} (PK), \texttt{name}, \texttt{cover} (URL ảnh), \texttt{latitude}, \texttt{longitude}, \texttt{parent\_id} (nếu là địa điểm con).
 
-    \item \textbf{attractions}: Lưu trữ thông tin chi tiết về các điểm tham quan du lịch cụ thể. Chứa \texttt{id} (PK), \texttt{location\_id} (FK đến \texttt{locations}), \texttt{name}, \texttt{images} (array URL), \texttt{address}, \texttt{latitude}, \texttt{longitude}, \texttt{phone}, \texttt{avg\_rating}, \texttt{rating\_count},...
+    \item \textbf{attractions}: Lưu trữ thông tin chi tiết về các điểm tham quan du lịch cụ thể. Chứa \texttt{id} (PK), \texttt{location\_id} (FK đến \texttt{locations}), \texttt{name}, \texttt{images} (array URL), \texttt{address}, \texttt{latitude}, \texttt{longitude}, \texttt{phone}, \texttt{avg\_rating}, \texttt{rating\_count},v.v.
 
     \item \textbf{attraction\_types}: Phân loại các điểm tham quan thuộc vào loại hình du lịch nào. Chứa \texttt{id} (PK), \texttt{attraction\_id} (FK đến \texttt{attractions}), \texttt{travel\_type\_id} (FK đến \texttt{travel\_types}), \texttt{type\_name}.
 
