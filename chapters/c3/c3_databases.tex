@@ -22,7 +22,7 @@ Hệ thống sử dụng CSDL PostgreSQL được host và quản lý trên nề
 
     \item \textbf{attractions}: Lưu trữ thông tin chi tiết về các điểm tham quan du lịch cụ thể. Chứa \texttt{id} (PK), \texttt{location\_id} (FK đến \texttt{locations}), \texttt{name}, \texttt{images} (array URL), \texttt{address}, \texttt{latitude}, \texttt{longitude}, \texttt{phone}, \texttt{avg\_rating}, \texttt{rating\_count},v.v.
 
-    \item \textbf{attraction\_types}: Phân loại các điểm tham quan thuộc vào loại hình du lịch nào. Chứa \texttt{id} (PK), \texttt{attraction\_id} (FK đến \texttt{attractions}), \texttt{travel\_type\_id} (FK đến \texttt{travel\_types}), \texttt{type\_name}.
+    % \item \textbf{attraction\_types}: Phân loại các điểm tham quan thuộc vào loại hình du lịch nào. Chứa \texttt{id} (PK), \texttt{attraction\_id} (FK đến \texttt{attractions}), \texttt{travel\_type\_id} (FK đến \texttt{travel\_types}), \texttt{type\_name}.
 
     \item \textbf{travel\_types}: Bảng danh mục các loại hình du lịch (ví dụ: 'Núi', 'Bãi Biển', 'Công viên'). Chứa \texttt{id} (PK), \texttt{name}, \texttt{parent\_id} (nếu có phân cấp).
 
@@ -34,7 +34,7 @@ Hệ thống sử dụng CSDL PostgreSQL được host và quản lý trên nề
 
     \item \textbf{messages}: Lưu trữ nội dung tin nhắn và các trạng thái của tin nhắn. Gồm \texttt{id} (PK), \texttt{chat\_id} (FK đến \texttt{chat}), \texttt{content}, \texttt{chat\_member\_id} (FK đến \texttt{chat\_members}), \texttt{is\_travel\_related} (đánh dấu có nên được tổng hơp hay không).
 
-    \item \textbf{message\_reactions}: Lưu trữ phản hồi (reaction) cho tin nhắn. Gồm \texttt{id} (PK), \texttt{message\_id} (FK đến \texttt{messages}), \texttt{reactor\_id} (FK đến \texttt{profiles}), \texttt{chat\_id}, \texttt{chat\_member\_id}, \texttt{emotion}.
+    % \item \textbf{message\_reactions}: Lưu trữ phản hồi (reaction) cho tin nhắn. Gồm \texttt{id} (PK), \texttt{message\_id} (FK đến \texttt{messages}), \texttt{reactor\_id} (FK đến \texttt{profiles}), \texttt{chat\_id}, \texttt{chat\_member\_id}, \texttt{emotion}.
 
     \item \textbf{notifications}: Lưu trữ thông báo gửi đến người dùng và là lời mời tham gia chuyến đi. Gồm \texttt{id} (PK), \texttt{receiver\_id} (FK đến \texttt{profiles}), \texttt{sender\_id} (FK đến \texttt{profiles}), \texttt{type}, \texttt{content}.
 
@@ -42,7 +42,7 @@ Hệ thống sử dụng CSDL PostgreSQL được host và quản lý trên nề
 
     \item \textbf{preference\_history}: Có thể lưu lịch sử thay đổi sở thích hoặc điểm số sở thích thông qua hành vi sử dụng. Gồm \texttt{id} (PK), \texttt{user\_id} (FK đến \texttt{profiles}), \texttt{travel\_type}, \texttt{previous\_score}, \texttt{new\_score}, \texttt{action}.
 
-    \item \textbf{search\_history}: Lưu lịch sử tìm kiếm của người dùng. Gồm \texttt{id} (PK), \texttt{user\_id} (FK đến \texttt{profiles}), \texttt{keyword}.
+    % \item \textbf{search\_history}: Lưu lịch sử tìm kiếm của người dùng. Gồm \texttt{id} (PK), \texttt{user\_id} (FK đến \texttt{profiles}), \texttt{keyword}.
 
    
 \end{itemize}
@@ -71,14 +71,13 @@ Ngoài các bảng dữ liệu chính, hệ thống còn sử dụng 3 tính nă
 \begin{itemize}
     \item \textbf{udpate\_trip\_status\_job}: Một tác vụ chạy nền định kỳ trong \texttt{pg\_cron} giúp kiểm tra và cập nhật trạng thái chuyến đi đúng với giờ xuất phát và kết thúc.
     
-    \item \textbf{search\_history\_limit}: Một trigger được sử dụng để giới hạn số lượng lịch sử tìm kiếm của một người dùng. Mỗi người dùng chỉ có tối đa 10 lịch sử tìm kiếm, một hàm xóa một hàng cũ nhất trong cơ sở dữ liệu sẽ được chạy khi có 1 lịch sử mới được thêm vào. 
-    \item \textbf{fetch\_nearby\_places}: Một function được tạo ra để hỗ trợ chức năng tìm kiếm các điểm tham quan (\texttt{attractions}) lân cận. Hàm tính khoảng cách địa lý, lọc theo bán kính và sắp xếp. Nếu không đủ kết quả trong bán kính theo yêu cầu, hàm tự động trả về các địa điểm gần nhất để đảm bảo luôn có gợi ý.
+    \item \textbf{search\_history\_limit}: Trigger giới hạn lịch sử tìm kiếm của người dùng (tối đa 10). Tự động xóa lịch sử cũ nhất khi có lịch sử mới được thêm vào.
+    \item \textbf{fetch\_nearby\_places}: Function tìm kiếm điểm tham quan (\texttt{attractions}) lân cận dựa trên khoảng cách địa lý và bán kính. Tự động trả về các địa điểm gần nhất nếu không đủ kết quả trong bán kính yêu cầu.
     % --- Hết mục mới ---
-    \item \textbf{get\_attractions}: Hàm PostgreSQL truy vấn điểm tham quan (\texttt{attractions}) với các tùy chọn lọc linh hoạt (theo ID địa điểm lớn, lân cận địa lý, loại hình du lịch - bao gồm cả loại cha/con) và sắp xếp (theo \texttt{hot\_score} hoặc điểm đánh giá cân bằng). Kết quả trả về kèm thông tin loại hình tổng hợp (JSON) và điểm đánh giá đã cân bằng.
-
+    \item \textbf{get\_attractions}: Function truy vấn điểm tham quan (\texttt{attractions}) với các tùy chọn lọc linh hoạt (theo ID địa điểm lớn, lân cận, loại hình du lịch) và sắp xếp (theo \texttt{hot\_score} hoặc điểm đánh giá). Trả về kết quả kèm thông tin loại hình (JSON) và điểm đánh giá cân bằng.
+    
     % --- search_profiles_and_trips rút gọn ---
-    \item \textbf{search\_profiles\_and\_trips}: Hàm PostgreSQL thực hiện tìm kiếm toàn văn (FTS) tổng hợp trên \texttt{profiles} (tên người dùng) và \texttt{trips} (tên chuyến đi, địa điểm liên quan) dựa trên từ khóa. Kết quả được kết hợp, xếp hạng theo độ liên quan (có trọng số ưu tiên tên chuyến đi), hỗ trợ lọc theo loại ('profile'/'trip') và phân trang.
-
+    \item \textbf{search\_profiles\_and\_trips}: Function tìm kiếm toàn văn (FTS) trên \texttt{profiles} (tên người dùng) và \texttt{trips} (tên chuyến đi, địa điểm) theo từ khóa. Kết quả được kết hợp, xếp hạng theo độ liên quan (ưu tiên tên chuyến đi), hỗ trợ lọc theo loại và phân trang.
 \end{itemize}
 
 \begin{figure}[H]

@@ -56,7 +56,7 @@ Mô hình NN được thiết kế theo kiến trúc hai nhánh song song để 
     \item \textbf{Nhánh Địa điểm:} Nhận đầu vào là vector đặc trưng địa điểm. Dữ liệu cũng đi qua các lớp Dense tương tự (Dense(128) -> Dense(64)).
     \item \textbf{Kết hợp và Dự đoán:} Output từ hai nhánh được ghép nối (Concatenate). Vector kết hợp này tiếp tục đi qua một lớp Dense (Dense(64)) và cuối cùng là một lớp Dense với 1 nơ-ron và hàm kích hoạt tuyến tính ('linear') để đưa ra dự đoán rating cuối cùng.
 \end{itemize}
-\newpage
+
 \lstset{language=python}
 \begin{lstlisting}[
     caption=Thiết lập mô hình Neural Network,

@@ -21,7 +21,7 @@
 
 \begin{figure}[H]
     \centering  
-    \includegraphics[width=1\textwidth]{figures/c4/unittest.png}
+    \includegraphics[width=0.6\textwidth]{figures/c4/unittest.png}
     \caption{Độ phủ kiểm thử xử lý logic với Pytest.}
     \label{fig:pytest-testing}
 \end{figure}
@@ -30,16 +30,7 @@
 \subsubsection{Kiểm thử API}
 
 Chi tiết các ca kiểm thử (miêu tả, input và output) được mô tả dưới bảng sau \ref{tab:api-test-cases}. Hình \ref{fig:postman} dưới đây mô tả các API endpoint được kiểm thử với Postman\cite{postman}.  
-
-\begin{figure}[H]
-    \centering  
-    \includegraphics[width=0.4\textwidth]{figures/c4/api_test.png}
-    \caption{Các API endpoint được kiểm thử với Postman.}
-    \label{fig:postman}
-\end{figure}
-
-
-Bảng 4.2 mô tả một số kịch bảng kiểm thử API chính cho ứng dụng. 
+% Bảng 4.2 mô tả một số kịch bảng kiểm thử API chính cho ứng dụng. 
 
 \small
 \begin{xltabular}{\textwidth}{|c|p{2cm}|X|X|c|}
@@ -69,12 +60,6 @@ Bảng 4.2 mô tả một số kịch bảng kiểm thử API chính cho ứng d
       & & Tìm kiếm với dữ liệu đầu vào không hợp lệ (sai kiểu dữ liệu `limit`). & Hệ thống trả về mã lỗi 422 và thông báo lỗi validation. & Đạt \\
      \cline{3-5}
       & & Tìm kiếm khi chưa xác thực (thiếu header `Authorization`). & Hệ thống trả về mã lỗi 401 và thông báo cần xác thực. & Đạt \\
-     \hline
- 
-     \multirow{4}{*}{1} & \multirow{4}{=}{\centering Đề xuất địa điểm} & Lấy đề xuất thành công với sở thích và danh sách ID hợp lệ. & Hệ thống trả về mã 200 và danh sách đề xuất được xếp hạng. & Đạt \\
-     \cline{3-5}
-      & & Lấy đề xuất với params `user\_preferences` thiếu thuộc tính. & Hệ thống trả về mã lỗi 500 và thông báo lỗi thiếu thuộc tính. & Đạt \\
-     \cline{3-5}
       & & Lấy đề xuất với dữ liệu đầu vào không hợp lệ, thiếu `preferences`. & Hệ thống trả về mã lỗi 422 và thông báo lỗi validation. & Đạt \\
       \cline{3-5}
       & & Lấy đề xuất khi chưa xác thực (thiếu header `Authorization`). & Hệ thống trả về mã lỗi 401 và thông báo cần xác thực. & Đạt \\
@@ -85,8 +70,7 @@ Bảng 4.2 mô tả một số kịch bảng kiểm thử API chính cho ứng d
       & & Lấy địa điểm liên quan với `att\_id` không hợp lệ (sai kiểu dữ liệu). & Hệ thống trả về mã lỗi 422 và thông báo lỗi validation. & Đạt \\
      \cline{3-5}
       & & Lấy địa điểm liên quan với `att\_id` không tồn tại. & Hệ thống trả về mã 200 và danh sách địa điểm liên quan rỗng. & Đạt \\
-      \cline{3-5}
-      & & Lấy địa điểm khi chưa xác thực (thiếu header `Authorization`). & Hệ thống trả về mã lỗi 401 và thông báo cần xác thực. & Đạt \\
+    
      \hline
  
 
@@ -95,6 +79,19 @@ Bảng 4.2 mô tả một số kịch bảng kiểm thử API chính cho ứng d
       & & Tóm tắt với dữ liệu đầu vào không hợp lệ (sai định dạng ngày). & Hệ thống trả về mã lỗi 422 và thông báo lỗi validation. & Đạt \\
     %  \cline{3-5}
     %   & & Tóm tắt khi chưa xác thực (thiếu header `Authorization`). & Hệ thống trả về mã lỗi 401 và thông báo cần xác thực. & Đạt \\
-     \hline
+     \hline  
+ 
+     \multirow{4}{*}{1} & \multirow{4}{=}{\centering Đề xuất địa điểm} & Lấy đề xuất thành công với sở thích và danh sách ID hợp lệ. & Hệ thống trả về mã 200 và danh sách đề xuất được xếp hạng. & Đạt \\
+     \cline{3-5}
+      & & Lấy đề xuất với params `user\_preferences` thiếu thuộc tính. & Hệ thống trả về mã lỗi 500 và thông báo lỗi thiếu thuộc tính. & Đạt \\
+     \cline{3-5}
+   
  
 \end{xltabular}
+
+\begin{figure}[H]
+    \centering  
+    \includegraphics[width=0.4\textwidth]{figures/c4/api_test.png}
+    \caption{Các API endpoint được kiểm thử với Postman.}
+    \label{fig:postman}
+\end{figure}
