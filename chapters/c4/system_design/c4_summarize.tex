@@ -50,9 +50,9 @@ Phía server FastAPI, một tác vụ nền \texttt{listen\_to\_messages} sử d
         showstringspaces=false,
         inputencoding=utf8] 
 {
-    'sequence': 'Thu den Vinh Ha Long xem the nao cung duoc',
-    'labels': ['travel schedule information', 'not travel schedule information'],
-    'scores': [0.5240467190742493, 0.4759533107280731]
+    "sequence": "Thu den Vinh Ha Long xem the nao cung duoc",
+    "labels": ["travel schedule information", "not travel schedule information"],
+    "scores": [0.5240467190742493, 0.4759533107280731]
 }
     \end{lstlisting}
     \item \textbf{Nhận dạng Thực thể Tên (NER):} Nếu \texttt{is\_travel\_related} là \texttt{true}, nội dung tin nhắn tiếp tục được xử lý bởi hàm \texttt{get\_place\_name} (sử dụng thư viện \texttt{underthesea}). Các thực thể địa điểm (Location) mới được tìm thấy (kết quả ví dụ như trong Đoạn mã~\ref{lst:ner_output}) sẽ được định dạng và bổ sung vào trường \texttt{meta\_data} (JSONB) của tin nhắn, tránh việc lưu trữ trùng lặp thông tin đã có.
@@ -68,14 +68,14 @@ Phía server FastAPI, một tác vụ nền \texttt{listen\_to\_messages} sử d
         showstringspaces=false,
         inputencoding=utf8] 
 [
-    ('Thu', 'V', 'B-VP', 'O'), 
-    ('den', 'E', 'B-PP', 'O'),
-    ('Vinh', 'N', 'B-NP', 'B-LOC'),
-    ('Ha Long', 'Np', 'I-NP', 'I-LOC'), 
-    ('xem', 'V', 'B-VP', 'O'),
-    ('the nao', 'P', 'B-NP', 'O'),
-    ('cung', 'R', 'O', 'O'),
-    ('duoc', 'V', 'B-VP', 'O')
+    ("Thu", "V", "B-VP", "O"), 
+    ("den", "E", "B-PP", "O"),
+    ("Vinh", "N", "B-NP", "B-LOC"),
+    ("Ha Long", "Np", "I-NP", "I-LOC"), 
+    ("xem", "V", "B-VP", "O"),
+    ("the nao", "P", "B-NP", "O"),
+    ("cung", "R", "O", "O"),
+    ("duoc", "V", "B-VP", "O")
 ]
     \end{lstlisting}
 
@@ -113,7 +113,7 @@ Sau khi các tin nhắn đã được tiền xử lý ở Giai đoạn 1, Giai �
     \item \textbf{Xây dựng Prompt:} Server FastAPI nhận yêu cầu, tổng hợp dữ liệu và xây dựng một prompt chi tiết cho Google Gemini API, như minh họa trong Hình~\ref{fig:prompt}. Prompt này chứa đầy đủ ngữ cảnh và các chỉ dẫn cụ thể về cách tạo lịch trình dạng JSON theo yêu cầu (lọc sự kiện, xử lý Yes/No, liên kết metadata, gộp lịch trình cũ, tuân thủ định dạng outputv.v.). Sau khi prompt hoàn chỉnh, server gửi yêu cầu đến Gemini API. % (Tham khảo cấu trúc prompt chi tiết tại Phụ lục \ref{apdx:gemini_prompt}) % <<< Placeholder
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.9\textwidth]{figures/c4/prompt.png}
+        \includegraphics[width=0.9\textwidth]{figures/c4/prompt2.png}
         \caption{Prompt hướng dẫn Gemini tổng hợp lịch trình.}
         \label{fig:prompt}
     \end{figure}

@@ -67,15 +67,15 @@ Mô hình NN được thiết kế theo kiến trúc hai nhánh song song để 
     breaklines=true,
     showstringspaces=false,
     inputencoding=utf8] 
-    user_layer = Dense(128, activation='relu')(input_user)
-    user_layer = Dense(64, activation='relu')(user_layer)
-    attraction_layer = Dense(128, activation='relu')(input_attraction)
-    attraction_layer = Dense(64, activation='relu')(attraction_layer)
+    user_layer = Dense(128, activation="relu")(input_user)
+    user_layer = Dense(64, activation="relu")(user_layer)
+    attraction_layer = Dense(128, activation="relu")(input_attraction)
+    attraction_layer = Dense(64, activation="relu")(attraction_layer)
     merged = Concatenate()([user_layer, attraction_layer])
-    merged = Dense(64, activation='relu')(merged)
-    output = Dense(1, activation='linear')(merged)
+    merged = Dense(64, activation="relu")(merged)
+    output = Dense(1, activation="linear")(merged)
     model = Model(inputs=[input_user, input_attraction], outputs=output)
-    model.compile(optimizer=Adam(learning_rate=0.001), loss='mse', metrics=['mae'])
+    model.compile(optimizer=Adam(learning_rate=0.001), loss="mse", metrics=["mae"])
     model.summary()
 
 \end{lstlisting}
