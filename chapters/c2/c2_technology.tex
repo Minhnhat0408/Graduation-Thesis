@@ -3,9 +3,9 @@ Dưới đây là các công nghê được sử dụng để phát triển hệ
 \subsection{Công nghệ phía người dùng (Frontend)}
 \label{subsec:frontend_tech}
 
-Giao diện người dùng của VieVu được phát triển bằng \textbf{Flutter} \cite{flutter_doc}, bộ công cụ UI của Google, sử dụng ngôn ngữ lập trình Dart. Lựa chọn này cho phép xây dựng ứng dụng đa nền tảng (Android, iOS) từ một cơ sở mã nguồn duy nhất, mang lại hiệu năng tốt và đẩy nhanh quá trình phát triển nhờ khả năng hot reload.
+Giao diện người dùng của VieVu được phát triển bằng \textbf{Flutter}~\cite{flutter_doc}, bộ công cụ UI của Google, sử dụng ngôn ngữ lập trình Dart. Lựa chọn này cho phép xây dựng ứng dụng đa nền tảng (Android, iOS) từ một cơ sở mã nguồn duy nhất, mang lại hiệu năng tốt và đẩy nhanh quá trình phát triển nhờ khả năng hot reload.
 
-Ứng dụng tuân thủ kiến trúc \textbf{Clean Architecture} \cite{clean_arch} với cách tổ chức thư mục theo Feature-First, giúp mã nguồn rõ ràng và dễ bảo trì. Việc quản lý trạng thái (state management) được thực hiện linh hoạt thông qua sự kết hợp của các thư viện \textbf{Bloc/Cubit} (\texttt{flutter\_bloc}) \cite{bloc_package}, phù hợp với các nguyên tắc của Clean Architecture.
+Ứng dụng tuân thủ kiến trúc \textbf{Clean Architecture}~\cite{clean_arch} với cách tổ chức thư mục theo Feature-First, giúp mã nguồn rõ ràng và dễ bảo trì. Việc quản lý trạng thái (state management) được thực hiện linh hoạt thông qua sự kết hợp của các thư viện \textbf{Bloc/Cubit} (\texttt{flutter\_bloc})~\cite{bloc_package}, phù hợp với các nguyên tắc của Clean Architecture.
 
 \subsection{Công nghệ phía máy chủ (Backend)}
 \label{subsec:backend_tech}
@@ -13,7 +13,7 @@ Giao diện người dùng của VieVu được phát triển bằng \textbf{Flu
 Phía máy chủ của VieVu được xây dựng dựa trên sự kết hợp của hai công nghệ chính là nền tảng \textbf{Supabase} đảm nhiệm các chức năng backend cốt lõi và framework \textbf{FastAPI} để tạo một API server cho các tác vụ chuyên biệt.
 
 \begin{itemize}
-    \item \textbf{Supabase (Backend as a Service)\cite{supabase_doc}:}
+    \item \textbf{Supabase (Backend as a Service)~\cite{supabase_doc}:}
     là nền tảng dịch vụ Cloud Backend mã nguồn mở dựa trên PostgreSQL, được sử dụng làm Backend chính để xử lý các nghiệp vụ cốt lõi và quản lý dữ liệu. Các tính năng chính trong Supabase được khai thác bao gồm:
         \begin{itemize}
             \item \textit{PostgreSQL Database:} Lưu trữ toàn bộ dữ liệu quan hệ của ứng dụng như người dùng, chuyến đi, địa điểm, đánh giá, lịch trình,.v.v.
@@ -23,7 +23,7 @@ Phía máy chủ của VieVu được xây dựng dựa trên sự kết hợp c
                         \item \textit{RLS Policy:}  Quản lý quyền truy cập và bảo mật dữ liệu thông qua các chính sách RLS (Row Level Security), cho phép kiểm soát quyền truy cập chi tiết đến từng bản ghi trong cơ sở dữ liệu.
         \end{itemize}
 
-    \item \textbf{API Server với FastAPI\cite{fastapi_doc}:}
+    \item \textbf{API Server với FastAPI~\cite{fastapi_doc}:}
  Là một framework Python hiện đại, nhanh chóng và dễ sử dụng để xây dựng các API RESTful, hỗ trợ tự động tạo tài liệu API và có khả năng xử lý đồng thời tốt, giúp tối ưu hóa hiệu suất cho các ứng dụng web. Hệ thống sử dụng FastAPI để xây dựng server cung cấp các API endpoint cho các chức năng:
         \begin{itemize}
              \item \textit{Xử lý AI/ML:} Bao gồm gợi ý địa điểm, nhận diện thực thể, phân loại tin nhắn, tổng hợp và tạo lịch trình.
@@ -36,6 +36,6 @@ Phía máy chủ của VieVu được xây dựng dựa trên sự kết hợp c
 \subsection{Công nghệ cơ sở dữ liệu}
 
 \label{subsec:database}
-Hệ quản trị cơ sở dữ liệu chính của VieVu là \textbf{PostgreSQL} \cite{postgresql_doc}, một hệ quản trị CSDL quan hệ - đối tượng (ORDBMS) mã nguồn mở, được quản lý và vận hành thông qua nền tảng Supabase. PostgreSQL chịu trách nhiệm lưu trữ toàn bộ dữ liệu quan hệ cốt lõi của ứng dụng, bao gồm thông tin người dùng, các chuyến đi, địa điểm du lịch, lịch trình, đánh giá và các mối quan hệ liên quan.
+Hệ quản trị cơ sở dữ liệu chính của VieVu là \textbf{PostgreSQL}~\cite{postgresql_doc}, một hệ quản trị CSDL quan hệ - đối tượng (ORDBMS) mã nguồn mở, được quản lý và vận hành thông qua nền tảng Supabase. PostgreSQL chịu trách nhiệm lưu trữ toàn bộ dữ liệu quan hệ cốt lõi của ứng dụng, bao gồm thông tin người dùng, các chuyến đi, địa điểm du lịch, lịch trình, đánh giá và các mối quan hệ liên quan.
 
 Việc sử dụng PostgreSQL phù hợp với VieVu nhờ độ tin cậy cao (đảm bảo tính ACID) và mô hình dữ liệu quan hệ mạnh mẽ. Khả năng mở rộng của PostgreSQL, đặc biệt là việc hỗ trợ PostgreSQL Functions cho các tác vụ nền tự động, cũng là một lợi thế quan trọng. Ngoài ra, sự tích hợp chặt chẽ trong nền tảng Supabase cho phép PostgreSQL tương tác hiệu quả với các dịch vụ khác như Realtime (đồng bộ dữ liệu trực tiếp) và Row Level Security (RLS) để tăng cường bảo mật dữ liệu.

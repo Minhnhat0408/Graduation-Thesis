@@ -2,7 +2,7 @@
 \label{sec:fundamental_knowledge}
 \subsection{Thư viện Underthesea}
 
-\textbf{Underthesea} \cite{underthesea_lib} là một thư viện Python mã nguồn mở, cung cấp bộ công cụ xử lý ngôn ngữ tự nhiên (NLP) cho tiếng Việt, bao gồm các mô hình tiền huấn luyện. Thư viện hỗ trợ nhiều tác vụ như phân tách từ, gán nhãn từ loại, và đặc biệt là \textbf{Nhận dạng thực thể tên (Named Entity Recognition - NER)}.
+\textbf{Underthesea}~\cite{underthesea_lib} là một thư viện Python mã nguồn mở, cung cấp bộ công cụ xử lý ngôn ngữ tự nhiên (NLP) cho tiếng Việt, bao gồm các mô hình tiền huấn luyện. Thư viện hỗ trợ nhiều tác vụ như phân tách từ, gán nhãn từ loại, và đặc biệt là \textbf{Nhận dạng thực thể tên (Named Entity Recognition - NER)}.
 
 NER là nhiệm vụ định vị và phân loại các thực thể tên (như người, tổ chức, địa điểm) trong văn bản. Mô hình NER trong \texttt{underthesea} được huấn luyện sẵn trên dữ liệu tiếng Việt.
 
@@ -10,9 +10,9 @@ NER là nhiệm vụ định vị và phân loại các thực thể tên (như 
 
 \subsection{Mô hình pre-trained XLM RoBERTA cho ứng dụng phân loại Zero-Shot}
 
-VieVu sử dụng mô hình \textbf{\texttt{joeddav/xlm-roberta-large-xnli}} \cite{xlm_roberta_xnli_model} từ Hugging Face, dựa trên kiến trúc \textbf{XLM-RoBERTa} \cite{xlm_roberta_paper} đa ngôn ngữ. Mô hình này được tinh chỉnh trên bộ dữ liệu \textbf{XNLI} cho nhiệm vụ Suy luận Ngôn ngữ Tự nhiên (NLI), tức xác định mối quan hệ logic giữa các câu.
+VieVu sử dụng mô hình \textbf{\texttt{joeddav/xlm-roberta-large-xnli}}~\cite{xlm_roberta_xnli_model} từ Hugging Face, dựa trên kiến trúc \textbf{XLM-RoBERTa}~\cite{xlm_roberta_paper} đa ngôn ngữ. Mô hình này được tinh chỉnh trên bộ dữ liệu \textbf{XNLI} cho nhiệm vụ Suy luận Ngôn ngữ Tự nhiên (NLI), tức xác định mối quan hệ logic giữa các câu.
 
-Khả năng thực hiện NLI cho phép mô hình được dùng cho phân loại Zero-Shot (Zero-Shot Classification - ZSC). Bài toán phân loại được diễn giải thành NLI: tin nhắn là "premise", mỗi lớp là "hypothesis" (ví dụ: "Tin nhắn này là về địa điểm"). Mô hình đánh giá mức độ "kéo theo" để phân loại tin nhắn vào lớp phù hợp nhất mà không cần dữ liệu huấn luyện riêng cho các lớp đó.
+Khả năng thực hiện NLI cho phép mô hình được dùng cho phân loại Zero-Shot (Zero-Shot Classification - ZSC). Bài toán phân loại được diễn giải thành NLI: tin nhắn là ``premise'', mỗi lớp là ``hypothesis'' (ví dụ: ``Tin nhắn này là về địa điểm"). Mô hình đánh giá mức độ ``kéo theo'' để phân loại tin nhắn vào lớp phù hợp nhất mà không cần dữ liệu huấn luyện riêng cho các lớp đó.
 
 \textit{Ứng dụng trong VieVu: Hệ thống dùng mô hình này để phân loại tin nhắn chat dựa trên mức độ liên quan đến việc lập kế hoạch chuyến đi, lọc ra các tin nhắn hữu ích cho việc tạo lịch trình.}
 
@@ -20,11 +20,11 @@ Khả năng thực hiện NLI cho phép mô hình được dùng cho phân loạ
 
 Hệ thống gợi ý đề xuất các đối tượng (ví dụ: địa điểm) phù hợp cho người dùng. VieVu sử dụng hai phương pháp chính:
 \begin{itemize}
-    \item \textbf{Gợi ý dựa trên nội dung (Content-Based Filtering - CB)\cite{cb_concept}:} Đề xuất các đối tượng mới dựa trên sự tương đồng về \textbf{đặc điểm nội dung} (thuộc tính, mô tả) với những đối tượng người dùng đã thích trước đây.
+    \item \textbf{Gợi ý dựa trên nội dung (Content-Based Filtering - CB)~\cite{cb_concept}:} Đề xuất các đối tượng mới dựa trên sự tương đồng về \textbf{đặc điểm nội dung} (thuộc tính, mô tả) với những đối tượng người dùng đã thích trước đây.
 
     \textit{Ứng dụng trong VieVu: Gợi ý các địa điểm du lịch có nội dung liên quan đến địa điểm người dùng đang xem.}
 
-    \item \textbf{Lọc cộng tác (Collaborative Filtering - CF)\cite{cf_concept}:} Đưa ra gợi ý dựa trên \textbf{hành vi và sở thích của cộng đồng người dùng} (ví dụ: ratings). Hệ thống tìm kiếm các mẫu tương đồng trong tương tác người dùng-đối tượng để dự đoán sở thích.
+    \item \textbf{Lọc cộng tác (Collaborative Filtering - CF)~\cite{cf_concept}:} Đưa ra gợi ý dựa trên \textbf{hành vi và sở thích của cộng đồng người dùng} (ví dụ: ratings). Hệ thống tìm kiếm các mẫu tương đồng trong tương tác người dùng-đối tượng để dự đoán sở thích.
 
     \textit{Ứng dụng trong VieVu: Làm cơ sở cho hệ thống gợi ý địa điểm chính, dựa trên dữ liệu đánh giá (ratings) của cộng đồng.}
 \end{itemize}
@@ -32,7 +32,7 @@ Hệ thống gợi ý đề xuất các đối tượng (ví dụ: địa điể
 
 Mạng Nơ-ron nhân tạo (Neural Networks - NN), đặc biệt là Học Sâu, có khả năng học các biểu diễn phức tạp từ dữ liệu. Trong gợi ý, NN thường được dùng để học các vector biểu diễn nhúng (embeddings) cho người dùng và đối tượng từ ma trận tương tác (theo nguyên tắc CF). Sự phù hợp giữa người dùng và đối tượng được dự đoán bằng cách kết hợp các embeddings này.
 
-NN cũng cho phép dễ dàng tích hợp thông tin phụ trợ (đặc điểm đối tượng, thông tin người dùng) tạo thành mô hình Hybrid. Các đặc điểm hạng mục (như loại hình địa điểm) có thể được xử lý bằng One-Hot Encoding (OHE) \cite{ohe_concept} để đưa vào mô hình.
+NN cũng cho phép dễ dàng tích hợp thông tin phụ trợ (đặc điểm đối tượng, thông tin người dùng) tạo thành mô hình Hybrid. Các đặc điểm hạng mục (như loại hình địa điểm) có thể được xử lý bằng One-Hot Encoding (OHE)~\cite{ohe_concept} để đưa vào mô hình.
 
 \textit{Ứng dụng trong VieVu: Hệ thống gợi ý địa điểm chính được xây dựng dựa trên mô hình Neural Network, học từ ratings người dùng (CF) và sử dụng đặc điểm địa điểm (đã mã hóa OHE) để cá nhân hóa đề xuất.}
 
@@ -40,6 +40,6 @@ NN cũng cho phép dễ dàng tích hợp thông tin phụ trợ (đặc điểm
 
 Ngoài NN, VieVu dùng cơ chế gợi ý địa điểm liên quan dựa trên nội dung (Content-Based) khi xem chi tiết một địa điểm, sử dụng Độ tương đồng Cosine.
 
-Nội dung văn bản (mô tả địa điểm) được chuyển thành vector số học, ví dụ bằng kỹ thuật Bag-of-Words (BoW) \cite{bow_concept}. Sau đó, \textbf{Độ tương đồng Cosine (Cosine Similarity)} \cite{cosine_similarity_concept} được dùng để đo mức độ giống nhau giữa các vector địa điểm bằng cách tính cosin của góc giữa chúng. Giá trị gần 1 cho thấy sự tương đồng cao.
+Nội dung văn bản (mô tả địa điểm) được chuyển thành vector số học, ví dụ bằng kỹ thuật Bag-of-Words (BoW)~\cite{bow_concept}. Sau đó, \textbf{Độ tương đồng Cosine (Cosine Similarity)}~\cite{cosine_similarity_concept} được dùng để đo mức độ giống nhau giữa các vector địa điểm bằng cách tính cosin của góc giữa chúng. Giá trị gần 1 cho thấy sự tương đồng cao.
 
 \textit{Ứng dụng trong VieVu: Hệ thống ứng dụng tính Cosine Similarity trên vector đặc trưng của địa điểm để gợi ý các địa điểm tương đồng nhất với địa điểm người dùng đang xem.}

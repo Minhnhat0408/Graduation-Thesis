@@ -12,16 +12,22 @@
 \noindent
 \textbf{Môi trường kiểm thử}
 
-\noindent Môi trường kiểm thử đơn vị được thiết lập bằng cách sử dụng \texttt{pytest} \cite{pytest}, một framework kiểm thử phổ biến, mạnh mẽ và linh hoạt cho Python. \texttt{pytest} cung cấp nhiều tính năng nâng cao và cũng có khả năng khám phá và chạy các kiểm thử được viết bằng thư viện \texttt{unittest} tích hợp sẵn của Python. Trong dự án này, \texttt{pytest} được sử dụng để xác minh tính đúng đắn của các hàm xử lý logic cho những chức năng cốt lõi như gợi ý địa điểm, tổng hợp lịch trình từ tin nhắn và chức năng tìm kiếm tổng hợp của ứng dụng.
+\noindent Môi trường kiểm thử đơn vị được thiết lập bằng cách sử dụng \texttt{pytest}~\cite{pytest}, một framework kiểm thử phổ biến, mạnh mẽ và linh hoạt cho Python. \texttt{pytest} cung cấp nhiều tính năng nâng cao và cũng có khả năng khám phá và chạy các kiểm thử được viết bằng thư viện \texttt{unittest} tích hợp sẵn của Python. Trong dự án này, \texttt{pytest} được sử dụng để xác minh tính đúng đắn của các hàm xử lý logic cho những chức năng cốt lõi như gợi ý địa điểm, tổng hợp lịch trình từ tin nhắn và chức năng tìm kiếm tổng hợp của ứng dụng.
 
 \noindent
 \textbf{Kết quả kiểm thử}
-
-\noindent Độ phủ và kết quả kiểm thử xử lý logic như Hình \ref{fig:pytest-testing}.
+% Độ phủ nhánh cho các hàm xử lý logic của server labeling ảnh được miêu tả như
+% Hình 4.17 và đạt 100%, với phạm vi kiểm thử bao gồm các hàm xử lý chính như
+% resize ảnh, phân nhóm khuôn mặt và các hàm xử lý của model AI. Đối với server
+% tạo video, độ phủ nhánh được miêu tả như Hình 4.18 và đạt 92.59%, với phạm vi
+% 61
+% kiểm thử bao gồm các hàm xử lý chính như tạo kịch bản video và tạo kịch bản cho
+% video
+\noindent Độ phủ và kết quả kiểm thử xử lý logic được trình bày trong Hình \ref{fig:pytest-testing}. Hệ thống đã được kiểm thử với tổng cộng 513 câu lệnh và đạt độ phủ 94\%, với phạm vi kiểm thử bao gồm hầu hết các module và hàm xử lý chính như gợi ý, tổng hợp lịch trình, phân loại và nhận diện. Ngoài ra các hàm tạo route API, tiền xử lý dữ liệu và xác thực người dùng tại server backend cũng dược kiểm thử đầy đủ với độ phủ xấp xỉ 90\%.
 
 \begin{figure}[H]
     \centering  
-    \includegraphics[width=0.6\textwidth]{figures/c4/unittest.png}
+    \includegraphics[width=0.8\textwidth]{figures/c4/unittest.png}
     \caption{Độ phủ kiểm thử xử lý logic với Pytest.}
     \label{fig:pytest-testing}
 \end{figure}
@@ -29,7 +35,7 @@
 
 \subsubsection{Kiểm thử API}
 
-Chi tiết các ca kiểm thử (miêu tả, input và output) được mô tả dưới bảng sau \ref{tab:api-test-cases}. Hình \ref{fig:postman} dưới đây mô tả các API endpoint được kiểm thử với Postman\cite{postman}.  
+Chi tiết các ca kiểm thử (miêu tả, input và output) được mô tả dưới Bảng \ref{tab:api-test-cases}. Hình \ref{fig:postman} dưới đây mô tả các API endpoint được kiểm thử với Postman~\cite{postman}.  
 % Bảng 4.2 mô tả một số kịch bảng kiểm thử API chính cho ứng dụng. 
 
 \small
@@ -91,7 +97,7 @@ Chi tiết các ca kiểm thử (miêu tả, input và output) được mô tả
 
 \begin{figure}[H]
     \centering  
-    \includegraphics[width=0.4\textwidth]{figures/c4/api_test.png}
+    \includegraphics[width=0.6\textwidth]{figures/c4/api_test.png}
     \caption{Các API endpoint được kiểm thử với Postman.}
     \label{fig:postman}
 \end{figure}

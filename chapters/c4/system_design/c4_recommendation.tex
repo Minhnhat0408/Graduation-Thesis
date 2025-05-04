@@ -18,7 +18,7 @@ $$Score_{Item} = w_{hs} \times ScaledHotScore + w_{wa} \times ScaledWeightedAvg$
 % (Tham khảo mã nguồn tính điểm tại Đoạn mã \ref{lst:score_calculation}) % <<< Placeholder
 
 \item  \textbf{Biểu diễn Nội dung và Tính Độ tương đồng Cosine}
-Nội dung văn bản của các địa điểm (tên, mô tả, địa chỉ, loại hình,v.v.) được tiền xử lý và tổng hợp thành một trường \texttt{bag\_of\_words}. Trường này sau đó được vector hóa bằng kỹ thuật TF-IDF (sử dụng \texttt{TfidfVectorizer} từ Scikit-learn \cite{sklearn_lib}, có loại bỏ từ dừng tiếng Việt) để tạo ra ma trận vector \texttt{tfidf\_matrix}. Độ tương đồng về nội dung giữa hai địa điểm bất kỳ (biểu diễn bởi vector $\vec{a}$ và $\vec{b}$) được đo bằng Cosine Similarity.
+Nội dung văn bản của các địa điểm (tên, mô tả, địa chỉ, loại hình,v.v.) được tiền xử lý và tổng hợp thành một trường \texttt{bag\_of\_words}. Trường này sau đó được vector hóa bằng kỹ thuật TF-IDF (sử dụng \texttt{TfidfVectorizer} từ Scikit-learn~\cite{sklearn_lib}, có loại bỏ từ dừng tiếng Việt) để tạo ra ma trận vector \texttt{tfidf\_matrix}. Độ tương đồng về nội dung giữa hai địa điểm bất kỳ (biểu diễn bởi vector $\vec{a}$ và $\vec{b}$) được đo bằng Cosine Similarity.
 Kết quả là ma trận độ tương đồng \texttt{cos\_sim} giữa tất cả các cặp địa điểm.
 % (Tham khảo mã nguồn xử lý text và TF-IDF tại Đoạn mã \ref{lst:tfidf_cosine_code}) % <<< Placeholder
 
@@ -35,7 +35,7 @@ Hệ thống gợi ý chính của VieVu, nhằm mục đích đề xuất các 
 \begin{enumerate}
     \item \textbf{Mục tiêu và Cách tiếp cận Hybrid}
     
-Mô hình này được thiết kế để dự đoán mức độ phù hợp (thể hiện qua điểm rating dự đoán) giữa một người dùng và một địa điểm cụ thể. Gọi là Hybrid vì nó sử dụng kết hợp ba nguồn thông tin: (1) Đặc trưng người dùng (User Features), bao gồm các thông tin về sở thích đối với các loại hình du lịch khác nhau, có thể được thu thập từ khảo sát ban đầu hoặc suy ra từ hành vi; (2) Đặc trưng địa điểm (Item Features), bao gồm các thuộc tính số như độ "hot", giá cả, điểm đánh giá trung bình và biểu diễn One-Hot Encoding của 88 loại hình du lịch mà địa điểm đó thuộc về; (3) Dữ liệu đánh giá (Ratings) làm tín hiệu hướng dẫn quá trình học. Mô hình được xây dựng và huấn luyện bằng thư viện TensorFlow cùng với Keras API \cite{tensorflow_lib, keras_lib}.
+Mô hình này được thiết kế để dự đoán mức độ phù hợp (thể hiện qua điểm rating dự đoán) giữa một người dùng và một địa điểm cụ thể. Gọi là Hybrid vì nó sử dụng kết hợp ba nguồn thông tin: (1) Đặc trưng người dùng (User Features), bao gồm các thông tin về sở thích đối với các loại hình du lịch khác nhau, có thể được thu thập từ khảo sát ban đầu hoặc suy ra từ hành vi; (2) Đặc trưng địa điểm (Item Features), bao gồm các thuộc tính số như độ ``hot", giá cả, điểm đánh giá trung bình và biểu diễn One-Hot Encoding của 88 loại hình du lịch mà địa điểm đó thuộc về; (3) Dữ liệu đánh giá (Ratings) làm tín hiệu hướng dẫn quá trình học. Mô hình được xây dựng và huấn luyện bằng thư viện TensorFlow cùng với Keras API~\cite{tensorflow_lib, keras_lib}.
     
     \item \textbf{Chuẩn bị Dữ liệu Đặc trưng và Tạo Dữ liệu Rating Giả lập}
 
