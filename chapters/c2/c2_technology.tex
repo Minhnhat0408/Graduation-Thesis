@@ -1,41 +1,24 @@
-\section{Các công nghệ được sử dụng}
-Dưới đây là các công nghê được sử dụng để phát triển hệ thống VieVu, bao gồm các công nghệ phía người dùng (frontend), phía máy chủ (backend), cơ sở dữ liệu và các công nghệ AI/ML.
-\subsection{Công nghệ phía người dùng (Frontend)}
-\label{subsec:frontend_tech}
+\section{Các công nghệ nền tảng hệ thống} % Sử dụng \section thay vì \subsection
+\label{sec:core_technologies}
 
-Giao diện người dùng của VieVu được phát triển bằng \textbf{Flutter}~\cite{flutter_doc}, bộ công cụ UI của Google, sử dụng ngôn ngữ lập trình Dart. Lựa chọn này cho phép xây dựng ứng dụng đa nền tảng (Android, iOS) từ một cơ sở mã nguồn duy nhất, mang lại hiệu năng tốt và đẩy nhanh quá trình phát triển nhờ khả năng hot reload.
+Phần này giới thiệu tổng quan về các công nghệ chính được sử dụng để xây dựng các thành phần cốt lõi của hệ thống VieVu, bao gồm giao diện người dùng (frontend), logic xử lý phía máy chủ (backend) và hệ thống lưu trữ dữ liệu (database).
 
-Ứng dụng tuân thủ kiến trúc \textbf{Clean Architecture}~\cite{clean_arch} với cách tổ chức thư mục theo Feature-First, giúp mã nguồn rõ ràng và dễ bảo trì. Việc quản lý trạng thái (state management) được thực hiện linh hoạt thông qua sự kết hợp của các thư viện \textbf{Bloc/Cubit} (\texttt{flutter\_bloc})~\cite{bloc_package}, phù hợp với các nguyên tắc của Clean Architecture.
+\subsection{Flutter} % Sử dụng \subsection thay vì \subsubsection
+\label{subsec:frontend_flutter}
 
-\subsection{Công nghệ phía máy chủ (Backend)}
-\label{subsec:backend_tech}
+Giao diện người dùng của ứng dụng VieVu được phát triển hoàn toàn bằng Flutter~\cite{flutter_doc}, một bộ công cụ (UI toolkit) mã nguồn mở được phát triển bởi Google. Flutter sử dụng ngôn ngữ lập trình Dart và cho phép xây dựng ứng dụng di động hoạt động trên cả hai nền tảng Android và iOS từ một cơ sở mã nguồn duy nhất (single codebase). Lựa chọn này không chỉ giúp đảm bảo trải nghiệm người dùng đồng nhất trên các nền tảng mà còn tăng tốc độ phát triển nhờ tính năng hot reload và thư viện widget phong phú, tùy biến cao. Về mặt kiến trúc, mã nguồn phía client tuân thủ theo các nguyên tắc của Clean Architecture~\cite{clean_arch} với cách tổ chức thư mục theo Feature-First, nhằm đảm bảo tính rõ ràng, dễ bảo trì và kiểm thử. Việc quản lý trạng thái (state management) trong ứng dụng được xử lý linh hoạt thông qua thư viện Bloc/Cubit (\texttt{flutter\_bloc})~\cite{bloc_package}, một giải pháp phổ biến giúp tách biệt logic nghiệp vụ khỏi giao diện người dùng hiệu quả.
 
-Phía máy chủ của VieVu được xây dựng dựa trên sự kết hợp của hai công nghệ chính là nền tảng \textbf{Supabase} đảm nhiệm các chức năng backend cốt lõi và framework \textbf{FastAPI} để tạo một API server cho các tác vụ chuyên biệt.
+\subsection{Supabase (BaaS)} % Sử dụng \subsection
+\label{subsec:backend_supabase}
 
-\begin{itemize}
-    \item \textbf{Supabase (Backend as a Service)~\cite{supabase_doc}:}
-    là nền tảng dịch vụ Cloud Backend mã nguồn mở dựa trên PostgreSQL, được sử dụng làm Backend chính để xử lý các nghiệp vụ cốt lõi và quản lý dữ liệu. Các tính năng chính trong Supabase được khai thác bao gồm:
-        \begin{itemize}
-            \item \textit{PostgreSQL Database:} Lưu trữ toàn bộ dữ liệu quan hệ của ứng dụng như người dùng, chuyến đi, địa điểm, đánh giá, lịch trình,.v.v.
-                        \item \textit{Realtime Features:} Lắng nghe sự thay đổi trên cơ sở dữ liệu và đồng bộ dữ liệu trong thời gian thực cho các tính năng như chat và chia sẻ vị trí.
-                        \item \textit{Authentication:} Quản lý vòng đời (sessions) và xác thực người dùng một cách an toàn, hỗ trợ đăng nhập qua nền tảng thứ ba như Google, Facebook, emai.v.v.
-                        \item \textit{Scheduled Tasks:} Thực thi các tác vụ nền tự động (như cập nhật trạng thái chuyến đi) bằng cách kết hợp PostgreSQL Functions với cơ chế Cron Jobs (\texttt{pg\_cron}) .
-                        \item \textit{RLS Policy:}  Quản lý quyền truy cập và bảo mật dữ liệu thông qua các chính sách RLS (Row Level Security), cho phép kiểm soát quyền truy cập chi tiết đến từng bản ghi trong cơ sở dữ liệu.
-        \end{itemize}
+Để xử lý các nghiệp vụ cốt lõi và quản lý dữ liệu phía máy chủ, VieVu tận dụng nền tảng Supabase~\cite{supabase_doc}, một giải pháp Backend as a Service (BaaS) mã nguồn mở xây dựng trên nền tảng PostgreSQL. Việc sử dụng Supabase giúp tăng tốc độ phát triển nhờ cung cấp sẵn các dịch vụ backend thiết yếu. Các tính năng chính được khai thác bao gồm hệ thống cơ sở dữ liệu PostgreSQL mạnh mẽ để lưu trữ dữ liệu quan hệ (người dùng, chuyến đi, địa điểm,...); tính năng Realtime thông qua cơ chế Pub/Sub để đồng bộ dữ liệu trực tiếp cho chat và chia sẻ vị trí; hệ thống Authentication tích hợp sẵn để quản lý định danh và xác thực người dùng an toàn (hỗ trợ nhiều phương thức); khả năng thực thi tác vụ nền định kỳ (Scheduled Tasks) thông qua Cron Jobs (\texttt{pg\_cron}) và PostgreSQL Functions; cùng với cơ chế bảo mật Row Level Security (RLS) để kiểm soát quyền truy cập dữ liệu chi tiết ở cấp độ hàng.
 
-    \item \textbf{API Server với FastAPI~\cite{fastapi_doc}:}
- Là một framework Python hiện đại, nhanh chóng và dễ sử dụng để xây dựng các API RESTful, hỗ trợ tự động tạo tài liệu API và có khả năng xử lý đồng thời tốt, giúp tối ưu hóa hiệu suất cho các ứng dụng web. Hệ thống sử dụng FastAPI để xây dựng server cung cấp các API endpoint cho các chức năng:
-        \begin{itemize}
-             \item \textit{Xử lý AI/ML:} Bao gồm gợi ý địa điểm, nhận diện thực thể, phân loại tin nhắn, tổng hợp và tạo lịch trình.
-             \item \textit{Tra cứu, tìm kiếm:} Tích hợp và trả về kết quả tìm kiếm từ chính cơ sở dữ liệu PostgreSQL và các API bên thứ ba (Trip.com, Ticketbox,v.v.).
-        \end{itemize}
-        
+\subsection{Python và FastAPI} % Sử dụng \subsection
+\label{subsec:backend_fastapi}
 
-\end{itemize}
+Bên cạnh Supabase, một API server riêng biệt được xây dựng bằng ngôn ngữ Python và framework FastAPI~\cite{fastapi_doc} để phục vụ các tác vụ xử lý phức tạp và chuyên biệt. FastAPI là một web framework Python hiện đại, hiệu năng cao, hỗ trợ lập trình bất đồng bộ, rất phù hợp để xây dựng các API RESTful. Server này chịu trách nhiệm chính trong việc cung cấp các API endpoint cho các chức năng ứng dụng AI/ML (như gợi ý địa điểm, phân loại tin nhắn, tổng hợp lịch trình) và thực hiện việc tra cứu, tích hợp dữ liệu từ các API của bên thứ ba (như Trip.com, Ticketbox).
 
-\subsection{Công nghệ cơ sở dữ liệu}
+\subsection{PostgreSQL} % Sử dụng \subsection
+\label{subsec:database_postgres} % Label mới để tránh trùng
 
-\label{subsec:database}
-Hệ quản trị cơ sở dữ liệu chính của VieVu là \textbf{PostgreSQL}~\cite{postgresql_doc}, một hệ quản trị CSDL quan hệ - đối tượng (ORDBMS) mã nguồn mở, được quản lý và vận hành thông qua nền tảng Supabase. PostgreSQL chịu trách nhiệm lưu trữ toàn bộ dữ liệu quan hệ cốt lõi của ứng dụng, bao gồm thông tin người dùng, các chuyến đi, địa điểm du lịch, lịch trình, đánh giá và các mối quan hệ liên quan.
-
-Việc sử dụng PostgreSQL phù hợp với VieVu nhờ độ tin cậy cao (đảm bảo tính ACID) và mô hình dữ liệu quan hệ mạnh mẽ. Khả năng mở rộng của PostgreSQL, đặc biệt là việc hỗ trợ PostgreSQL Functions cho các tác vụ nền tự động, cũng là một lợi thế quan trọng. Ngoài ra, sự tích hợp chặt chẽ trong nền tảng Supabase cho phép PostgreSQL tương tác hiệu quả với các dịch vụ khác như Realtime (đồng bộ dữ liệu trực tiếp) và Row Level Security (RLS) để tăng cường bảo mật dữ liệu.
+Hệ quản trị cơ sở dữ liệu (CSDL) trung tâm của VieVu là PostgreSQL~\cite{postgresql_doc}, một hệ quản trị CSDL quan hệ - đối tượng (ORDBMS) mã nguồn mở được quản lý thông qua nền tảng Supabase. PostgreSQL chịu trách nhiệm lưu trữ toàn bộ dữ liệu quan hệ cốt lõi của ứng dụng, bao gồm thông tin người dùng, chuyến đi, địa điểm, lịch trình, đánh giá và các mối quan hệ giữa chúng. Việc lựa chọn PostgreSQL phù hợp nhờ độ tin cậy cao, mô hình dữ liệu quan hệ mạnh mẽ và tuân thủ tốt chuẩn ACID. Khả năng mở rộng của PostgreSQL thông qua các tính năng SQL nâng cao như PostgreSQL Functions cũng được tận dụng cho các tác vụ nền tự động. Sự tích hợp chặt chẽ với các dịch vụ khác của Supabase như Realtime và RLS càng củng cố vai trò của PostgreSQL như một nền tảng dữ liệu vững chắc cho VieVu.

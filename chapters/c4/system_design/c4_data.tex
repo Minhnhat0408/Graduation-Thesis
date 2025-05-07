@@ -1,25 +1,17 @@
 \subsection{Thu thập dữ liệu}
 
 
-Để ứng dụng VieVu có thể hoạt động và cung cấp các chức năng cốt lõi như tìm kiếm, hiển thị thông tin, và gợi ý, việc xây dựng một bộ dữ liệu nền tảng ban đầu là bước thiết yếu. Dữ liệu ban đầu này bao gồm thông tin chi tiết về các địa điểm du lịch (attractions), các điểm đến lớn hơn (locations - tỉnh, quận,v.v.) và các loại hình du lịch (travel types).
-
+Để ứng dụng VieVu có thể hoạt động và cung cấp các chức năng cốt lõi như tìm kiếm, hiển thị thông tin, và gợi ý, việc xây dựng một bộ dữ liệu nền tảng ban đầu là bước thiết yếu. Dữ liệu ban đầu này bao gồm thông tin chi tiết về các địa điểm du lịch, các điểm đến như tỉnh, quận và các loại hình du lịch.
 \subsubsection{Nguồn và phương pháp thu thập dữ liệu}
 Hệ thống thu thập dữ liệu từ hai nguồn chính là nền tảng \textbf{vn.trip.com} (cho dữ liệu chính về địa điểm, điểm đến, loại hình, và các thông tin khác) và \textbf{Ticketbox} (cho thông tin về các sự kiện).
 
-Việc thu thập dữ liệu từ \texttt{vn.trip.com} gặp phải thách thức khi các yêu cầu truy cập trực tiếp bị chặn. Để giải quyết vấn đề này phải xây dựng một \textbf{proxy server bằng Node.js và TypeScript}. Proxy server này đóng vai trò trung gian, xử lý các yêu cầu đến \texttt{vn.trip.com} và cho phép việc thu thập dữ liệu diễn ra.
+Việc thu thập dữ liệu từ \textit{vn.trip.com} gặp phải thách thức khi các yêu cầu truy cập trực tiếp bị chặn. Để giải quyết vấn đề này phải xây dựng một proxy server bằng Node.js và TypeScript. Proxy server này đóng vai trò trung gian, xử lý các yêu cầu đến \textit{vn.trip.com} và cho phép việc thu thập dữ liệu diễn ra.
 
-Trong quá trình thu thập, nhận thấy dữ liệu về mô tả (\texttt{description}) và phân loại loại hình du lịch (\texttt{travel\_type}) cho một số điểm tham quan bị thiếu hoặc chưa đầy đủ. Vì lý do này hệ thống đã tích hợp sử dụng \textbf{API của Google Gemini} để tự động tạo ra các mô tả và thông tin loại hình còn thiếu dựa trên thông tin có sẵn khác của điểm tham quan.
+Trong quá trình thu thập, nhận thấy dữ liệu về mô tả (\texttt{description}) và phân loại loại hình du lịch (\texttt{travel\_type}) cho một số điểm tham quan bị thiếu hoặc chưa đầy đủ. Vì lý do này hệ thống đã tích hợp sử dụng API của Google Gemini để tự động tạo ra các mô tả và thông tin loại hình còn thiếu dựa trên thông tin có sẵn khác của điểm tham quan.
 
 \subsubsection{Kết quả thu thập dữ liệu}
-Thông qua quá trình crawling từ \texttt{vn.trip.com}, một bộ dữ liệu ban đầu đáng kể đã được thu thập và lưu trữ vào cơ sở dữ liệu PostgreSQL của hệ thống (quản lý bởi Supabase), bao gồm:
-\begin{itemize}
-    \item \textbf{1006 } bản ghi điểm tham quan (\texttt{attractions}), chứa các thông tin như tên, mô tả, ảnh bìa (\texttt{cover}), danh sách URL ảnh (\texttt{images}), điểm đánh giá (\texttt{hot\_score}, \texttt{avg\_rating}, \texttt{rating\_count}), giá tham khảo (\texttt{price}), tọa độ địa lý (\texttt{latitude}, \texttt{longitude}), địa chỉ (\texttt{address}), quy tắc giờ mở cửa (\texttt{open\_time\_rule}), và khóa ngoại liên kết đến địa điểm lớn (\texttt{location\_id}).
-    \item \textbf{538} bản ghi điểm đến (\texttt{locations}), chủ yếu là các tỉnh/thành phố, quận của Việt Nam, chứa tên, ảnh, tọa độ và liên kết cha-con (nếu có).
-    \item \textbf{100} bản ghi loại hình du lịch (\texttt{travel\_types}), bao gồm 12 loại hình cha và 88 loại hình con, lưu trữ dưới dạng ID (\texttt{id} dạng text) và tên (\texttt{name}).
-    \item Bảng liên kết \textbf{\texttt{attraction\_types}} được tạo ra để quản lý mối quan hệ nhiều-nhiều giữa điểm tham quan và loại hình du lịch.
-\end{itemize}
-Các bảng này (\texttt{attractions}, \texttt{locations}, \texttt{travel\_types}, \texttt{attraction\_types}) được thiết kế với các khóa chính, khóa ngoại và chỉ mục (indexes) phù hợp như đã mô tả trong phần thiết kế CSDL (Mục \ref{sec:3-4-database}).
+Thông qua quá trình lấy dữ liệu từ nền tảng \textit{vn.trip.com}, một bộ dữ liệu ban đầu quan trọng đã được thu thập và lưu trữ thành công vào cơ sở dữ liệu PostgreSQL của hệ thống. Cụ thể, bộ dữ liệu này bao gồm \textbf{1006} bản ghi về các điểm tham quan (\texttt{attractions}), chứa các thông tin chi tiết như tên, mô tả, ảnh bìa,v.v.. Bên cạnh đó, \textbf{538} bản ghi về các điểm đến (\texttt{locations}), chủ yếu là các tỉnh/thành phố và quận/huyện của Việt Nam với thông tin tên, ảnh, tọa độ, cũng đã được thu thập. Đồng thời, \textbf{100} bản ghi về loại hình du lịch (\texttt{travel\_types}) được lấy về, bao gồm \textbf{12} loại hình cha và \textbf{88} loại hình con. Để quản lý mối quan hệ nhiều-nhiều giữa điểm tham quan và loại hình du lịch, bảng liên kết \texttt{attraction\_types} cũng đã được tạo ra. Các bảng dữ liệu này (\texttt{attractions}, \texttt{locations}, \texttt{travel\_types}, \texttt{attraction\_types}) được thiết kế với đầy đủ khóa chính, khóa ngoại và các chỉ mục cần thiết như đã mô tả chi tiết trong phần thiết kế cơ sở dữ liệu Mục~\ref{sec:3-4-database}. % <<< !!! NHỚ THAY LABEL CHO ĐÚNG !!!
 
 \subsubsection{Mục đích sử dụng dữ liệu}
-Bộ dữ liệu được thu thập và làm giàu này đóng vai trò kép: (1) Cung cấp nội dung nền tảng phong phú cho các chức năng hiển thị, tra cứu, lọc thông tin địa điểm trên ứng dụng VieVu dành cho người dùng cuối. (2) Làm dữ liệu đầu vào quan trọng cho việc huấn luyện các mô hình gợi ý (recommendation models) sẽ được trình bày ở các mục sau.
+Bộ dữ liệu được thu thập và làm giàu này đóng vai trò kép: (1) Cung cấp nội dung nền tảng phong phú cho các chức năng hiển thị, tra cứu, lọc thông tin địa điểm trên ứng dụng VieVu dành cho người dùng cuối. (2) Làm dữ liệu đầu vào quan trọng cho việc huấn luyện các mô hình gợi ý sẽ được trình bày ở các mục sau.
 Quá trình thu thập và chuẩn bị dữ liệu ban đầu này, dù gặp một số thách thức kỹ thuật, đã tạo ra nền tảng dữ liệu cần thiết cho sự hoạt động và phát triển của các tính năng cốt lõi trong hệ thống VieVu.
