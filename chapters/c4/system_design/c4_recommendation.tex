@@ -12,9 +12,8 @@ Trong đó $R$ là điểm trung bình gốc, $v$ là số lượt đánh giá, 
 $$Score_{Item} = w_{hs} \times ScaledHotScore + w_{wa} \times ScaledWeightedAvg$$
 % (Tham khảo mã nguồn tại Đoạn mã \ref{lst:score_calculation}) % <<< Placeholder
 
-Tiếp theo, nội dung văn bản của các địa điểm được tiền xử lý, tổng hợp thành trường \texttt{bag\_of\_words} và vector hóa bằng \texttt{TfidfVectorizer} từ Scikit-learn~\cite{sklearn_lib} (có loại bỏ từ dừng tiếng Việt) để tạo ma trận TF-IDF. Độ tương đồng nội dung giữa hai địa điểm (vector $\vec{a}$ và $\vec{b}$) được đo bằng Cosine Similarity:
-$$\text{Cosine Similarity}(\vec{a}, \vec{b}) = \frac{\vec{a} \cdot \vec{b}}{\|\vec{a}\| \|\vec{b}\|}$$
-Kết quả là ma trận độ tương đồng \texttt{cos\_sim} giữa các cặp địa điểm. % (Tham khảo tại Đoạn mã \ref{lst:tfidf_cosine_code}) % <<< Placeholder
+Tiếp theo, nội dung văn bản của các địa điểm được tiền xử lý, tổng hợp thành trường \texttt{bag\_of\_words} và vector hóa bằng \texttt{TfidfVectorizer} từ Scikit-learn~\cite{sklearn_lib} (có loại bỏ từ dừng tiếng Việt) để tạo ma trận TF-IDF. Độ tương đồng nội dung giữa hai địa điểm (vector $\vec{a}$ và $\vec{b}$) được đo bằng Cosine Similarity và kết quả là ma trận độ tương đồng \texttt{cos\_sim} giữa các cặp địa điểm. % (Tham khảo tại Đoạn mã \ref{lst:tfidf_cosine_code}) % <<< Placeholder
+% $$\text{Cosine Similarity}(\vec{a}, \vec{b}) = \frac{\vec{a} \cdot \vec{b}}{\|\vec{a}\| \|\vec{b}\|}$$
 
 Cuối cùng, hàm gợi ý \texttt{get\_related\_attractions} được triển khai. Hàm này nhận ID địa điểm đang xem, lấy $Score_{Item}$ và độ tương đồng nội dung ($Similarity$) từ \texttt{cos\_sim}, rồi tính điểm gợi ý cuối cùng ($Score_{Final}$) bằng cách kết hợp chúng với trọng số $w_{sim}$ (ví dụ: 0.7):
 $$Score_{Final} = w_{sim} \times Similarity + (1 - w_{sim}) \times Score_{Item}$$

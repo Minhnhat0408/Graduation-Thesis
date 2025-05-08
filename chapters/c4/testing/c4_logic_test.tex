@@ -5,19 +5,9 @@
 
 \subsubsection{Kiểm thử đơn vị}
 
-\textbf{Phạm vi kiểm thử}
+Phạm vi kiểm thử đơn vị của ứng dụng VieVu bao gồm kiểm thử các hàm xử lý và model của server Backend Python với FastAPI. Môi trường kiểm thử đơn vị được thiết lập bằng cách sử dụng \texttt{pytest}~\cite{pytest}, một framework kiểm thử phổ biến, mạnh mẽ và linh hoạt cho Python. \texttt{pytest} cung cấp nhiều tính năng nâng cao và chạy các kiểm thử được viết bằng thư viện \texttt{unittest} tích hợp sẵn của Python. Trong dự án này, \texttt{pytest} được sử dụng để xác minh tính đúng đắn của các hàm xử lý logic cho những chức năng cốt lõi như gợi ý địa điểm, tổng hợp lịch trình từ tin nhắn và chức năng tìm kiếm tổng hợp của ứng dụng.
 
-\noindent Phạm vi kiểm thử đơn vị của ứng dụng VieVu bao gồm kiểm thử các hàm xử lý và model của server Backend Python với FastAPI. 
-
-\noindent
-\textbf{Môi trường kiểm thử}
-
-\noindent Môi trường kiểm thử đơn vị được thiết lập bằng cách sử dụng \texttt{pytest}~\cite{pytest}, một framework kiểm thử phổ biến, mạnh mẽ và linh hoạt cho Python. \texttt{pytest} cung cấp nhiều tính năng nâng cao và chạy các kiểm thử được viết bằng thư viện \texttt{unittest} tích hợp sẵn của Python. Trong dự án này, \texttt{pytest} được sử dụng để xác minh tính đúng đắn của các hàm xử lý logic cho những chức năng cốt lõi như gợi ý địa điểm, tổng hợp lịch trình từ tin nhắn và chức năng tìm kiếm tổng hợp của ứng dụng.
-
-\noindent
-\textbf{Kết quả kiểm thử}
-
-\noindent Độ phủ và kết quả kiểm thử xử lý logic được trình bày trong Hình \ref{fig:pytest-testing}. Hệ thống đã được kiểm thử với tổng cộng 513 câu lệnh và đạt độ phủ 94\%, với phạm vi kiểm thử bao gồm hầu hết các module và hàm xử lý chính như gợi ý, tổng hợp lịch trình, phân loại và nhận diện. Ngoài ra các hàm tạo route API, tiền xử lý dữ liệu và xác thực người dùng tại server backend cũng dược kiểm thử đầy đủ với độ phủ xấp xỉ 90\%.
+Độ phủ và kết quả kiểm thử xử lý logic được trình bày trong Hình \ref{fig:pytest-testing}. Hệ thống đã được kiểm thử với tổng cộng 513 câu lệnh và đạt độ phủ 94\%, với phạm vi kiểm thử bao gồm hầu hết các module và hàm xử lý chính như gợi ý, tổng hợp lịch trình, phân loại và nhận diện. Ngoài ra các hàm tạo route API, tiền xử lý dữ liệu và xác thực người dùng tại server backend cũng dược kiểm thử đầy đủ với độ phủ xấp xỉ 90\%.
 
 
 

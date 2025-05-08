@@ -9,7 +9,7 @@ Một trong những tính năng ứng dụng AI nổi bật của VieVu là kh�
 
 Giai đoạn đầu tiên của pipeline tập trung vào việc xử lý các tin nhắn mới ngay khi chúng được gửi đến hệ thống, nhằm mục đích phân loại và trích xuất thông tin liên quan một cách tự động và bất đồng bộ.
 
-Đầu tiên, để phát hiện tin nhắn mới một cách hiệu quả, hệ thống sử dụng cơ chế \textbf{LISTEN/NOTIFY} tích hợp sẵn của PostgreSQL. Một trigger cơ sở dữ liệu được cấu hình trên bảng \texttt{messages} để mỗi khi có một bản ghi mới được chèn, nó sẽ gửi một thông báo đến kênh \texttt{messages\_insert}, kèm theo dữ liệu (payload) của tin nhắn mới dưới dạng JSON, như minh họa trong Đoạn mã~\ref{lst:json-payload}. % (Xem chi tiết trigger tại Phụ lục \ref{apdx:db_trigger}) % <<< Placeholder
+Đầu tiên, để phát hiện tin nhắn mới một cách hiệu quả, hệ thống sử dụng cơ chế \textit{LISTEN/NOTIFY} tích hợp sẵn của PostgreSQL. Một trigger cơ sở dữ liệu được cấu hình trên bảng \texttt{messages} để mỗi khi có một bản ghi mới được chèn, nó sẽ gửi một thông báo đến kênh \texttt{messages\_insert}, kèm theo dữ liệu (payload) của tin nhắn mới dưới dạng JSON, như minh họa trong Đoạn mã~\ref{lst:json-payload}. % (Xem chi tiết trigger tại Phụ lục \ref{apdx:db_trigger}) % <<< Placeholder
 
 \lstset{language=json}
 \begin{lstlisting}[
@@ -98,7 +98,7 @@ Tiếp theo, client thực hiện gọi API tổng hợp phía Server. Client Fl
         \label{fig:input}
     \end{figure}
 
-Sau đó, phía server thực hiện xây dựng Prompt. Server FastAPI nhận yêu cầu, tổng hợp dữ liệu và xây dựng một prompt chi tiết cho Google Gemini API (model flash 2.5), như minh họa trong Hình~\ref{fig:prompt}. Prompt này chứa đầy đủ ngữ cảnh và các chỉ dẫn cụ thể về cách tạo lịch trình dạng JSON theo yêu cầu (lọc sự kiện, xử lý Yes/No, liên kết metadata, gộp lịch trình cũ, tuân thủ định dạng output, v.v.). % (Tham khảo cấu trúc prompt chi tiết tại Phụ lục \ref{apdx:gemini_prompt}) % <<< Placeholder
+Sau đó, phía server thực hiện xây dựng Prompt. Server FastAPI nhận yêu cầu, tổng hợp dữ liệu và xây dựng một prompt chi tiết cho Google Gemini API (model 2.0 flash), như minh họa trong Hình~\ref{fig:prompt}. Prompt này chứa đầy đủ ngữ cảnh và các chỉ dẫn cụ thể về cách tạo lịch trình dạng JSON theo yêu cầu (lọc sự kiện, xử lý Yes/No, liên kết metadata, gộp lịch trình cũ, tuân thủ định dạng output, v.v.). % (Tham khảo cấu trúc prompt chi tiết tại Phụ lục \ref{apdx:gemini_prompt}) % <<< Placeholder
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.9\textwidth]{figures/c4/prompt2.png}
