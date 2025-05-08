@@ -31,9 +31,7 @@
 
 \subsubsection{Kiểm thử API}
 
-Chi tiết các ca kiểm thử (miêu tả, input và output) được mô tả dưới Bảng \ref{tab:api-test-cases}. Hình \ref{fig:postman} dưới đây mô tả các API endpoint được kiểm thử với Postman~\cite{postman}.  
-% Bảng 4.2 mô tả một số kịch bảng kiểm thử API chính cho ứng dụng. 
-
+Để đánh giá hoạt động của các API, tổng cộng 14 ca kiểm thử chính đã được xây dựng cho 4 nhóm API chính. Các ca kiểm thử này bao gồm mô tả, dữ liệu đầu vào và kết quả kỳ vọng, được trình bày cụ thể trong Bảng \ref{tab:api-test-cases}. Hình \ref{fig:postman} dưới đây minh họa các API endpoint đã được kiểm thử bằng công cụ Postman~\cite{postman}.
 \small
 \begin{xltabular}{\textwidth}{|c|p{2cm}|X|X|c|}
     \caption{Các kịch bản kiểm thử API chính} \label{tab:api-test-cases} \\
@@ -62,40 +60,37 @@ Chi tiết các ca kiểm thử (miêu tả, input và output) được mô tả
       & & Tìm kiếm với dữ liệu đầu vào không hợp lệ (sai kiểu dữ liệu `limit`). & Hệ thống trả về mã lỗi 422 và thông báo lỗi validation. & Đạt \\
      \cline{3-5}
       & & Tìm kiếm khi chưa xác thực (thiếu header `Authorization`). & Hệ thống trả về mã lỗi 401 và thông báo cần xác thực. & Đạt \\
-      & & Lấy đề xuất với dữ liệu đầu vào không hợp lệ, thiếu `preferences`. & Hệ thống trả về mã lỗi 422 và thông báo lỗi validation. & Đạt \\
-      \cline{3-5}
-      & & Lấy đề xuất khi chưa xác thực (thiếu header `Authorization`). & Hệ thống trả về mã lỗi 401 và thông báo cần xác thực. & Đạt \\
      \hline
  
-     \multirow{4}{*}{1} & \multirow{4}{=}{\centering Tìm địa điểm liên quan } & Lấy địa điểm liên quan thành công với ID hợp lệ. & Hệ thống trả về mã 200 và danh sách địa điểm liên quan. & Đạt \\
+     \multirow{3}{*}{2} & \multirow{3}{=}{\centering Tìm địa điểm liên quan} & Lấy địa điểm liên quan thành công với ID hợp lệ. & Hệ thống trả về mã 200 và danh sách địa điểm liên quan. & Đạt \\
      \cline{3-5}
       & & Lấy địa điểm liên quan với `att\_id` không hợp lệ (sai kiểu dữ liệu). & Hệ thống trả về mã lỗi 422 và thông báo lỗi validation. & Đạt \\
      \cline{3-5}
       & & Lấy địa điểm liên quan với `att\_id` không tồn tại. & Hệ thống trả về mã 200 và danh sách địa điểm liên quan rỗng. & Đạt \\
-    
      \hline
  
-
-     \multirow{3}{*}{5} & \multirow{3}{=}{\centering Tóm tắt hội thoại} & Tóm tắt thành công với dữ liệu hội thoại hợp lệ. & Hệ thống trả về mã 200, cấu trúc lịch trình (`data`) và văn bản tóm tắt (`reading`). & Đạt \\
+     \multirow{3}{*}{3} & \multirow{3}{=}{\centering Tóm tắt hội thoại} & Tóm tắt thành công với dữ liệu hội thoại hợp lệ. & Hệ thống trả về mã 200, cấu trúc lịch trình (`data`) và văn bản tóm tắt (`reading`). & Đạt \\
      \cline{3-5}
       & & Tóm tắt với dữ liệu đầu vào không hợp lệ (sai định dạng ngày). & Hệ thống trả về mã lỗi 422 và thông báo lỗi validation. & Đạt \\
-    %  \cline{3-5}
-    %   & & Tóm tắt khi chưa xác thực (thiếu header `Authorization`). & Hệ thống trả về mã lỗi 401 và thông báo cần xác thực. & Đạt \\
+     \cline{3-5}
+      & & Tóm tắt khi chưa xác thực (thiếu header `Authorization`). & Hệ thống trả về mã lỗi 401 và thông báo cần xác thực. & Đạt \\
      \hline  
  
-     \multirow{4}{*}{1} & \multirow{4}{=}{\centering Đề xuất địa điểm} & Lấy đề xuất thành công với sở thích và danh sách ID hợp lệ. & Hệ thống trả về mã 200 và danh sách đề xuất được xếp hạng. & Đạt \\
+     \multirow{4}{*}{4} & \multirow{4}{=}{\centering Đề xuất địa điểm} & Lấy đề xuất thành công với sở thích và danh sách ID hợp lệ. & Hệ thống trả về mã 200 và danh sách đề xuất được xếp hạng. & Đạt \\
      \cline{3-5}
       & & Lấy đề xuất với params `user\_preferences` thiếu thuộc tính. & Hệ thống trả về mã lỗi 500 và thông báo lỗi thiếu thuộc tính. & Đạt \\
      \cline{3-5}
-   
- 
+      & & Lấy đề xuất với dữ liệu đầu vào không hợp lệ, thiếu `preferences`. & Hệ thống trả về mã lỗi 422 và thông báo lỗi validation. & Đạt \\
+     \cline{3-5}
+      & & Lấy đề xuất khi chưa xác thực (thiếu header `Authorization`). & Hệ thống trả về mã lỗi 401 và thông báo cần xác thực. & Đạt \\
 \end{xltabular}
+
 Trong quá trình kiểm thử các API trên, một số lỗi đã được phát hiện điển hình như lỗi lấy đề xuất với `user\_preferences` thiếu thuộc tính. Mặc dù người dùng không thể chủ động tạo yêu cầu đến API này, tuy nhiên nếu lộ api và bị tấn công sẽ gây lỗi server. Chính vì vậy, lỗi này đã được sửa chữa và kiểm thử lại để đảm bảo hệ thống ổn định.
 
 
 \begin{figure}[H]
     \centering  
-    \includegraphics[width=0.45\textwidth]{figures/c4/api_test.png}
+    \includegraphics[width=0.4\textwidth]{figures/c4/api_test.png}
     \caption{Các API endpoint được kiểm thử với Postman.}
     \label{fig:postman}
 \end{figure}
