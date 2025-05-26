@@ -24,7 +24,7 @@ Top N địa điểm có $Score_{Final}$ cao nhất (trừ địa điểm gốc)
 
 Hệ thống gợi ý chính của VieVu, nhằm đề xuất địa điểm cá nhân hóa, được xây dựng dựa trên mô hình Neural Network (NN) theo cách tiếp cận Hybrid, sử dụng thư viện TensorFlow và Keras~\cite{tensorflow_lib, keras_lib}. Mô hình này dự đoán mức độ phù hợp (rating dự đoán) dựa trên sự kết hợp của ba nguồn thông tin: đặc trưng người dùng (User Features từ khảo sát/hành vi), đặc trưng địa điểm (Item Features gồm thuộc tính số và OHE loại hình), và dữ liệu đánh giá giả lập.
 
-Quá trình chuẩn bị dữ liệu bao gồm tải dữ liệu đặc trưng cho khoảng 3500 người dùng và 1006 địa điểm. Do hạn chế dữ liệu rating thực tế, bộ dữ liệu huấn luyện (\texttt{user\_ratings\_data.csv}) được tạo giả lập bằng cách phân phối ngẫu nhiên điểm rating cho cặp (user, item) dựa trên thống kê gốc (\texttt{avg\_rating}, \texttt{rating\_count}) của địa điểm. Dữ liệu đặc trưng và rating giả lập sau đó được kết hợp và chia thành tập huấn luyện (90%) và kiểm thử (10%).
+Quá trình chuẩn bị dữ liệu bao gồm tải dữ liệu đặc trưng cho khoảng 3500 người dùng và 1006 địa điểm. Do hạn chế dữ liệu rating thực tế, bộ dữ liệu huấn luyện (\texttt{user\_ratings\_data.csv}) được tạo giả lập bằng cách phân phối ngẫu nhiên điểm rating cho cặp (user, item) dựa trên thống kê gốc (\texttt{avg\_rating}, \texttt{rating\_count}) của địa điểm. Dữ liệu đặc trưng và rating giả lập sau đó được kết hợp và chia thành tập huấn luyện (80\%) và kiểm thử (20\%).
 
 Mô hình NN được thiết kế theo kiến trúc two-tower song song. Nhánh người dùng và nhánh địa điểm nhận đầu vào là các vector đặc trưng tương ứng, mỗi nhánh đi qua hai lớp Dense (128 và 64 nơ-ron, ReLU). Output từ hai nhánh được ghép nối (Concatenate), đi qua một lớp Dense (64 nơ-ron, ReLU) và lớp Dense output cuối cùng (1 nơ-ron, 'linear') để dự đoán rating. Chi tiết thiết lập các lớp mạng được thể hiện trong Đoạn mã~\ref{lst:nn_model}. % (Sơ đồ kiến trúc có thể xem tại Hình~\ref{fig:nn_arch}) % <<< Placeholder
 
@@ -51,12 +51,14 @@ Mô hình NN được thiết kế theo kiến trúc two-tower song song. Nhánh
     
 \end{lstlisting}
 
-Mô hình được huấn luyện để tối thiểu hóa Mean Squared Error (MSE) giữa rating dự đoán và rating giả lập, sử dụng optimizer Adam (learning rate 0.001) và theo dõi Mean Absolute Error (MAE). Quá trình huấn luyện diễn ra trong 30 epochs với batch size 32. Kết quả huấn luyện được trực quan hóa trong Hình~\ref{fig:mae} cho thấy mô hình học được từ dữ liệu (Loss và MAE đều giảm) và đạt MAE khoảng 0.64 trên tập kiểm chứng, mặc dù có dấu hiệu overfitting. Mô hình với trọng số tốt nhất được lưu lại. % <<< NHỚ THAY LABEL FIG ĐÚNG !!!
+Mô hình được huấn luyện để tối thiểu hóa Mean Squared Error (MSE) giữa rating dự đoán và rating giả lập, sử dụng optimizer Adam (learning rate 0.001) và theo dõi Mean Absolute Error (MAE). Quá trình huấn luyện diễn ra trong 30 epochs với batch size 32. Kết quả huấn luyện được trực quan hóa trong Hình~\ref{fig:mae}.
+Quan sát biểu đồ, cả Training Loss và Training MAE đều giảm đều đặn qua các epochs, bắt đầu từ khoảng 1.585 (Loss) và 1.049 (MAE) xuống còn khoảng 0.465 (Loss) và 0.516 (MAE) ở epoch cuối cùng. Validation Loss và Validation MAE cũng giảm trong những epochs đầu, từ khoảng 1.454 (Loss) và 0.998 (MAE), nhưng sau đó có xu hướng dao động và không giảm sâu như trên tập huấn luyện. Cụ thể, Validation Loss kết thúc ở mức khoảng 0.748 và Validation MAE đạt giá trị tốt nhất khoảng 0.638 ở epoch thứ 30. Sự chênh lệch giữa đường cong huấn luyện và kiểm chứng, đặc biệt là từ khoảng epoch 10-15 trở đi, cho thấy mô hình có dấu hiệu của overfitting. Mặc dù vậy, mô hình với trọng số tại epoch có Validation MAE thấp nhất (0.638) đã được lưu lại để sử dụng.
     \begin{figure}[H]
         \centering
         \includegraphics[width=\textwidth]{figures/c4/128.png} % Đường dẫn tới file ảnh của bạn
-        \caption{Hiệu suất mô hình qua độ đo MAE và Loss trong quá trình huấn luyện.} % Cập nhật caption
+        \caption{Hiệu suất mô hình qua độ đo Loss và MAE.} % Cập nhật caption
         \label{fig:mae} % Giữ nguyên label nếu bạn đã dùng
     \end{figure}
 
 Như vậy, việc triển khai hệ thống gợi ý địa điểm chính của VieVu đã hoàn thành thông qua việc xây dựng và huấn luyện mô hình Neural Network Hybrid. Bằng cách kết hợp thông tin đặc trưng và tín hiệu học hỏi từ dữ liệu rating giả lập, mô hình được tối ưu hóa để dự đoán mức độ phù hợp. Hệ thống gợi ý cuối cùng được tích hợp vào API server, sẵn sàng cung cấp các đề xuất địa điểm cá nhân hóa cho người dùng.
+% ...existing code...
